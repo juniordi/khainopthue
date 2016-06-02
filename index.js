@@ -1,10 +1,11 @@
+
 var express = require('express')
 var bodyParser = require('body-parser')
 var request = require('request')
 var cheerio = require('cheerio')
 var app = express()
 
-//data:
+//data
 var a = [
     {
         "description": "smile",
@@ -75,10 +76,10 @@ var a = [
     {
         "description": "hỏi chung chung về htkk",
         "keyword": [" htkk "],
-        "answer": ["Ứng dụng HTKK thuộc bản quyền của Tổng cục thuế. Đây là phần mềm được phát hành miễn phí cho các cơ sở SXKD nhằm hỗ trợ các đơn vị trong quá trình kê khai thuế"]
+        "answer": ["Ứng dụng HTKK thuộc bản quyền của Tổng cục thuế. Đây là phần mềm được phát hành miễn phí cho các cơ sở SXKD nhằm hỗ trợ các đơn vị trong quá trình kê khai thuế", "Bạn có thể hỏi: phiên bản mới nhất của HTKK là bao nhiêu? để biết phiên bản mới nhất", "Tải phiên bản HTKK mới nhất tại http://adf.ly/1aAYdJ"]
     },
     {
-        "description": "phiên bản htkk hiện tại",
+        "description": "phiên bản htkk",
         "keyword": [" htkk ", " phiên bản "],
         "answer": ["function:htkk_version"]
     },
@@ -86,6 +87,11 @@ var a = [
         "description": "hỏi chung chung itaxviewer",
         "keyword": [[" itaxviewer ", " itaxview ", " itax "]],
         "answer": ["Bạn muốn hỏi về phần mềm iTaxViewer? iTaxViewer là ứng dụng hỗ trợ đọc, xác minh tờ khai, thông báo thuế định dạng XML. Tải phiên bản mới nhất tại đây http://adf.ly/1aAYfe"]
+    },
+    {
+        "description": "phiên bản itaxviewer",
+        "keyword": [[" itaxviewer ", " itaxview ", " itax "], " phiên bản "],
+        "answer": ["Tôi chưa cập nhật phiên bản mới nhất của iTaxViewer là bao nhiêu, nhưng bạn có thể tải phiên bản mới nhất tại http://adf.ly/1aAYfe"]
     },
     {
         "description": "Bạn có thể làm gì?",
@@ -121,6 +127,16 @@ var a = [
         "description": "Đăng ký nộp thuế điện tử như thế nào",
         "keyword": [" đăng ký ", " nộp thuế ", [" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào "]],
         "answer": ["Bạn xem cách đăng ký nộp thuế tại đây https://youtu.be/kgsTeNWyjQs"]
+    },
+    {
+        "description": "ihtkk là gì",
+        "keyword": [" ihtkk "],
+        "answer": ["iHTKK là hệ thống kê khai thuế, nộp tờ khai thuế thông qua trang web của Tổng Cục Thuế http://kekhaithue.gdt.gov.vn"]
+    },
+    {
+        "description": "phiên bản ihtkk",
+        "keyword": [" ihtkk ", " phiên bản "],
+        "answer": ["Bạn vào trang http://kekhaithue.gdt.gov.vn và xem góc trên phải của trang để biết phiên bản hiện tại ihtkk nhé.\nTôi rất tiếc vì sự bất tiện này"]
     },
 
 
@@ -163,12 +179,12 @@ var a = [
     {
         "description": "hỏi chung chung Không gửi được tk/gửi tk lỗi",
         "keyword":[[" kekhaithue ", " nhantokhai ", " kê khai thuế ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk ", " gửi bảng kê ", " gửi bk ", " nộp bảng kê ", " nộp bk "], [" không được ", " lỗi "]],
-        "answer": ["Bạn hãy mô tả chi tiết lỗi gặp phải nhé"]
+        "answer": ["Bạn hãy mô tả chi tiết lỗi gặp phải nhé. VD như: gửi tk báo lỗi xsd, gửi tk báo lỗi java.lang.null, gửi tk báo lỗi chưa đến thời kỳ làm bc, ..."]
     },
     {
         "description": "hỏi chung chung Không gửi được tk/gửi tk lỗi",
         "keyword":[[" không gửi ", " không nộp "], [" tờ khai ", " tk "]],
-        "answer": ["Bạn hãy mô tả chi tiết lỗi gặp phải nhé"]
+        "answer": ["Bạn hãy mô tả chi tiết lỗi gặp phải nhé. VD như: gửi tk báo lỗi xsd, gửi tk báo lỗi java.lang.null, gửi tk báo lỗi chưa đến thời kỳ làm bc, ..."]
     },
     {
         "description": "gửi tk báo lỗi hso chưa đăng ký nộp qua mạng",
@@ -196,6 +212,11 @@ var a = [
         "answer": ["Các bảng kê hoặc thuyết minh BCTC bạn gửi file định dạng word hoặc excel. Cách làm bạn xem tại đây http://lehoangdieu.blogspot.com/2016/02/nop-thuyet-minh-bctc-qua-mang.html"]
     },
     {
+        "description": "sử dụng htkk lỗi",
+        "keyword": [[" htkk ", " lập tk ", " lập tờ khai ", " làm tk ", " làm tờ khai ", " khai tk ", " khai tờ khai "], " lỗi "],
+        "answer": ["Bạn hãy mô tả chi tiết lỗi nhé. VD: vào HTKK báo lỗi error, lập tk bổ sung trên htkk báo lỗi error, không vào được htkk, bctc không nhập được số âm trên htkk..."]
+    },
+    {
         "description": "vào htkk báo lỗi error",
         "keyword": [" htkk ", " lỗi ", " error "],
         "answer": ["Bạn xem lại quyền user trên máy tính sử dụng đã đủ quyền chưa? Hoặc bạn phải restart lại máy tính sau khi cài đặt HTKK"]
@@ -203,7 +224,27 @@ var a = [
     {
         "description": "lập tk bsung trên htkk báo lỗi error",
         "keyword": [" htkk ", " lỗi ", " error ", [" tk ", " tờ khai "], [" bổ sung ", " bổ xung "]],
-        "answer": ["Bạn xem lại định dạng ngày tháng trên máy tính nhé"]
+        "answer": ["Vào lập tk bổ sung trên HTKK bị lỗi error thì bạn xem lại định dạng ngày tháng trên máy tính nhé","Làm tương tự như này http://lehoangdieu.blogspot.com/2016/02/khac-phuc-loi-sai-ngay-thang-nam-sinh.html"]
+    },
+    {
+        "description": "HTKK không nhập được số âm",
+        "keyword": [" htkk ", " lỗi ", [" không nhập được số âm ", " không nhập số âm được "]],
+        "answer": ["Bạn khắc phục như ở đây http://lehoangdieu.blogspot.com/2016/02/khac-phuc-loi-khong-nhap-uoc-so-am-tren.html. Nếu vẫn không nhập được số âm thì lỗi do HTKK"]
+    },
+    {
+        "description": "HTKK không nhập được số âm trên BCTC",
+        "keyword": [" htkk ", " lỗi ", [" không nhập được số âm ", " không nhập số âm được "], [" báo cáo tài chính ", " bctc "]],
+        "answer": ["Bạn khắc phục như ở đây http://lehoangdieu.blogspot.com/2016/02/khac-phuc-loi-khong-nhap-uoc-so-am-tren.html. Nếu vẫn không nhập được số âm thì lỗi do HTKK"]
+    },
+    {
+        "description": "ko vào được HTKK",
+        "keyword": [" htkk ", " lỗi ", [" không vào ", " đứng im "]],
+        "answer": ["Bạn khắc phục như ở đây http://lehoangdieu.blogspot.com/2016/02/nhap-mst-nhung-khong-vao-uoc-htkk.html"]
+    },
+    {
+        "description": "cài đặt ngày tháng",
+        "keyword": [[" ngày tháng ", " ngày giờ "], [" cài đặt ", " thiết lập "]],
+        "answer": ["Bạn làm tương tự như này http://lehoangdieu.blogspot.com/2016/02/khac-phuc-loi-sai-ngay-thang-nam-sinh.html"]
     },
     {
         "description": "gửi tk báo lỗi chưa đến thời kỳ làm bc",
@@ -297,13 +338,18 @@ var a = [
     },
     {
         "description": "Các phần mềm cần cài để khai nộp thuế",
-        "keyword": [" phần mềm ", [" cần thiết ", " cài "]],
+        "keyword": [[" phần mềm ", " gì "], [" cần thiết ", " cài "], [" nộp tờ khai ", " nộp tk ", " nộp thuế ", " kê khai ", " khai nộp thuế ", " khai thuế qua mạng "]],
         "answer": ["Bạn cần cài những phần mềm sau để khai nộp thuế:\n- HTKK: lập tờ khai\n- iTaxViewer: xem TK\n- Java: đọc và ký TK, chứng từ,...\n- Phần mềm quản lý bút ký\n- Trình duyệt web"]
+    },
+    {
+        "description": "quên mật khẩu khai nộp thuế",
+        "keyword": [[" quên ", " mất ", " lấy lại ", " không nhớ "], [" mật khẩu ", " pass ", " password "], [" khai thuế ", " nộp thuế ", " kê khai ", " nộp tk ", " nộp tờ khai ", " kekhaithue ", " nhantokhai ", " nopthue "]],
+        "answer": ["Bạn xem cách lấy lại mật khẩu ở đây http://lehoangdieu.blogspot.com/2016/02/lay-lai-mat-khau-khai-thue-va-nop-thue.html"]
     }
+
 ]
-
-var a_sorry = "[ROBOT] Rất tiếc vì tôi chưa có dữ liệu bạn cần. Hãy thông cảm là tôi chỉ hiểu câu hỏi khi bạn viết tiếng Việt có dấu và hạn chế viết tắt nhé"
-
+var a_sorry = "Rất tiếc vì tôi chưa có dữ liệu bạn cần. Hãy thông cảm là tôi chỉ hiểu câu hỏi khi bạn viết tiếng Việt có dấu và hạn chế viết tắt nhé"
+var url_htkk = 'http://www.gdt.gov.vn/wps/portal/home/hotrokekhai'
 
 function check(str, obj){ //tim duoc bao nhieu tu khoa trong obj
     var kq = 0
@@ -409,7 +455,16 @@ app.post('/webhook/', function (req, res) {
                 if (a[a_item]["answer"][0] == "function:help"){
                     sendTextMessage(sender, help(a, 5))
                 } else if (a[a_item]["answer"][0] == "function:htkk_version"){
-                    sendTextMessage(sender, htkk_version())
+                    request(url_htkk, function(err, response, body){  
+                        if (!err && response.statusCode == 200) {
+                            var $ = cheerio.load(body)
+                            var txt = $('.news > div > a').text().trim()
+                        
+                            sendTextMessage(sender, 'Phiên bản HTKK hiện tại đang là ' + txt.substr(txt.lastIndexOf(" "),txt.length-txt.lastIndexOf(" ")) + ' được nâng cấp ' + $('.news > div > span').text() + '\nTải phiên bản HTKK mới nhất tại http://adf.ly/1aAYdJ')
+                        }
+                        else sendTextMessage(sender, 'Không xem được phiên bản của HTKK do kết nối tới máy chủ lỗi')
+                        })
+                    //sendTextMessage(sender, htkk_version())
                 } else {
                     for (var i=0; i < a[a_item]["answer"].length; i++){
                             sendTextMessage(sender, a[a_item]["answer"][i])
