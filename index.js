@@ -65,7 +65,7 @@ var a = [
     
     {
         "description": "Bạn có thể làm gì?",
-        "keyword": [" có thể ", [" làm được gì ", " làm gì "]],
+        "keyword": [" có thể ", [" làm được gì ", " làm gì ", " làm được những gì ", " làm những gì "]],
         "answer": ["Tôi có thể hướng dẫn căn bản cách khai và nộp thuế. Gõ \"help\" hoặc \"trợ giúp\" để biết cách sử dụng nhé"]
     },
     {
@@ -113,6 +113,11 @@ var a = [
         "description": "tra cứu mst",
         "keyword": [[" tra cứu mst ", " tra cứu mã số thuế ", " tra mst ", " tra mã số thuế "]],
         "answer": ["Bạn vào http://adf.ly/1bRiIX hoặc http://adf.ly/1bRiNn để tra cứu mst"]
+    },
+    {
+        "description": "cách ký điện tử",
+        "keyword": [" ký điện tử "],
+        "answer": ["Bạn xem cách ký tờ khai tại đây https://youtu.be/IMeg6n6reI0, hoặc cách ký giấy nộp tiền tại đây https://youtu.be/ngmUka21pZI"]
     }
 
 ]
@@ -212,7 +217,7 @@ var a_catalogue = [
     },
     {
         "description": "ihtkk là gì",
-        "catalogue": [" ihtkk "],
+        "catalogue": [" ihtkk ", " web kekhaithue ", " web kê khai ", " website kekhaithue ", " website kê khai ", " web nhantokhai ", " website nhantokhai"],
         "keyword": [[" là gì ", " giới thiệu ", " là cái gì ", " website ", " trang web "]],
         "answer": ["iHTKK là hệ thống kê khai thuế, nộp tờ khai thuế thông qua trang web của Tổng Cục Thuế http://kekhaithue.gdt.gov.vn"]
     },
@@ -250,21 +255,78 @@ var a_catalogue = [
 
     {
         "description": "chữ ký số là gì",
-        "catalogue": [[" chứng thư số ", " chữ ký số ", " bút ký ", " token "]],
+        "catalogue": [[" chứng thư số ", " chữ ký số ", " bút ký ", " token ", " ca "]],
         "keyword": [[" là gì ", " là cái gì "]],
         "answer": ["Chữ ký số còn được gọi là chứng thư số là một con dấu để xác nhận văn bản này là của của Doanh nghiệp sử dụng để ký vào văn bản. Chữ ký số có hình dạng như một chiếc USB được gọi là USB Token"]
     },
     {
         "description": "chữ ký số lưu những thông tin gì",
-        "catalogue": [[" chứng thư số ", " chữ ký số ", " bút ký ", " token "]],
+        "catalogue": [[" chứng thư số ", " chữ ký số ", " bút ký ", " token ", " ca "]],
         "keyword": [[" có gì ", " lưu gì ", " thông tin "]],
         "answer": ["Thông tin có trong chữ ký số:\n- Tên của Doanh nghiệp bao gồm: Mã số thuế, Tên Công ty… \n- Số hiệu của chứng thư số (số serial) \n- Thời hạn có hiệu lực của chứng thư số \n- Tên của tổ chức chứng thực chữ ký số \n..."]
     },
     {
         "description": "mua chữ ký số của ai",
-        "catalogue": [[" chứng thư số ", " chữ ký số ", " bút ký ", " token "]],
+        "catalogue": [[" chứng thư số ", " chữ ký số ", " bút ký ", " token ", " ca "]],
         "keyword": [[" mua ", " bán "], [" của ai ", " của công ty nào ", " ở đâu ", " chỗ nào ", " nơi nào "]],
         "answer": ["Bạn xem danh sách các công ty cung cấp chứng thư số ở đây nhé http://adf.ly/1aE2UO"]
+    },
+    {
+        "description": "Danh sách các công ty cung cấp chữ ký số",
+        "catalogue": [[" chứng thư số ", " chữ ký số ", " bút ký ", " token ", " ca "]],
+        "keyword": [[" danh sách công ty ", " danh sách đơn vị ", " danh mục đơn vị ", " danh mục công ty ", " danh sách các công ty ", " danh sách các đơn vị ", " danh sách các đơn vị ", " danh mục các đơn vị "]],
+        "answer": ["Bạn xem danh sách các công ty cung cấp chứng thư số ở đây nhé http://adf.ly/1aE2UO"]
+    },
+    {
+        "description": "cài đặt chứng thư số",
+        "catalogue": [[" chứng thư số ", " chữ ký số ", " bút ký ", " token ", " ca "]],
+        "keyword": [[" cài ", " setup ", " install "]],
+        "answer": ["Bạn vào trong chữ ký số (sử dụng như 1 USB), tìm phần mềm cài đặt trong đó. Hoặc vào website của đơn vị cung cấp chữ ký số để tải phần mềm quản lý chữ ký số. Gõ: danh sách công ty cung cấp bút ký để xem danh sách các công ty cung cấp"]
+    },
+
+
+
+    {
+        "description": "phần mềm TNCN",
+        "catalogue": [" phần mềm tncn "],
+        "keyword": [[" phiên bản ", " download ", " tải ", " là gì "]],
+        "answer": ["Hiện nay phần mềm TNCN đã ngừng cung cấp. Để cấp mst cá nhân qua cơ quan chi trả bạn dùng phần mềm HTQT TNCN"]
+    },
+
+
+    {
+        "description": "Đăng ký mst cá nhân",
+        "catalogue": [[" mst cá nhân ", " mã số thuế cá nhân "]],
+        "keyword": [[" đăng ký ", " cấp "]],
+        "answer": ["Bạn dùng phần mềm HTQT TNCN (Hỗ trợ quyết toán TNCN) > Chọn ĐĂNG KÝ THUẾ QUA CQCT, sau đó kết xuất ra file xml (không được đổi tên file) rồi gửi qua trang tncnonline.com.vn. Sau đó in 1 bản có đóng dấu gửi đến cơ quan thuế"]
+    },
+
+
+    {
+        "description": "HTQT TNCN là gì",
+        "catalogue": [" htqt tncn "],
+        "keyword": [[" là gì ", " là cái gì ", " giới thiệu "]],
+        "answer": ["HTQT TNCN (Hỗ trợ quyết toán TNCN) là phần mềm dùng để khai hồ sơ quyết toán thuế TNCN và hồ sơ xin cấp MST cá nhân qua cơ quan chi trả. Download tại http://adf.ly/1bPQhy"]
+    },
+    {
+        "description": "phiên bản HTQT TNCN",
+        "catalogue": [" htqt tncn "],
+        "keyword": [[" phiên bản ", " version ", " bản "]],
+        "answer": ["Rất tiếc tôi không cập nhập phiên bản HTQT TNCN. Bạn vào đây để download phiên bản mới nhất nhé http://adf.ly/1bPQhy"]
+    },
+    {
+        "description": "Download HTQT TNCN",
+        "catalogue": [" htqt tncn "],
+        "keyword": [[" download ", " tải "]],
+        "answer": ["Bạn vào đây để download HTQT TNCN phiên bản mới nhất nhé http://adf.ly/1bPQhy"]
+    },
+
+
+    {
+        "description": "tra cứu tiểu mục",
+        "catalogue": [" tiểu mục "],
+        "keyword": [" tiểu mục "],
+        "answer": ["function:search_tmuc"]
     },
 
 
@@ -367,13 +429,13 @@ var a_catalogue = [
     },
     {
         "description": "Đăng ký tờ khai phải nộp trên trang kekhaithue",
-        "catalogue": [" kekhaithue ", " nhantokhai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk "],
-        "keyword": [[" đăng ký ", " thêm "],[" tk ", " tờ khai "],[" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào "]],
+        "catalogue": [" kekhaithue ", " nhantokhai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk ", " kê khai "],
+        "keyword": [" đăng ký ", [" đăng ký tờ khai ", " đăng ký tk ", " đăng ký thêm tờ khai ", " đăng ký thêm tk "], [" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào "]],
         "answer": ["Bạn vào ĐĂNG KÝ TỜ KHAI để đăng ký, bạn tham khảo cách làm ở đây https://youtu.be/9XZ0nbBuPXM"]
     },
     {
         "description": "Ngừng tờ khai phải nộp trên trang kekhaithue",
-        "catalogue": [" kekhaithue ", " nhantokhai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk "],
+        "catalogue": [" kekhaithue ", " nhantokhai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk ", " kê khai "],
         "keyword": [" đăng ký ", [" ngừng tk ", " ngừng tờ khai ", " bỏ tk ", " bỏ tk ", " hủy tk ", " hủy tờ khai "],[" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào "]],
         "answer": ["Bạn vào ĐĂNG KÝ TỜ KHAI để đăng ký ngừng TK phải nộp, bạn tham khảo cách làm ở đây https://youtu.be/9XZ0nbBuPXM"]
     },
@@ -475,44 +537,517 @@ var a_catalogue = [
         "keyword": [" đăng ký ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
         "answer": ["Bạn xem cách đăng ký nộp thuế qua mạng tại đây https://youtu.be/kgsTeNWyjQs"]
     },
-
-
-
-
     {
-        "description": "phần mềm TNCN",
-        "catalogue": [" tncn "],
-        "keyword": [[" phần mềm ", " phiên bản ", " download ", " tải ", " là gì "]],
-        "answer": ["Hiện nay phần mềm TNCN đã ngừng cung cấp. Để cấp mst cá nhân qua cơ quan chi trả bạn dùng phần mềm HTQT TNCN"]
+        "description": "Thay đổi thông tin nộp thuế",
+        "catalogue": [[" nộp thuế ", " nopthue "]],
+        "keyword": [[" đổi thông tin ", " sửa thông tin ", " thay thông tin "], [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "answer": ["Bạn xem cách thay đổi thông tin nộp thuế tại đây https://youtu.be/b8Pjbq3G1vQ"]
     },
 
 
     {
-        "description": "Đăng ký mst cá nhân",
-        "catalogue": [[" mst cá nhân ", " mã số thuế cá nhân "]],
-        "keyword": [[" đăng ký ", " cấp "]],
-        "answer": ["Bạn dùng phần mềm HTQT TNCN (Hỗ trợ quyết toán TNCN) > Chọn ĐĂNG KÝ THUẾ QUA CQCT, sau đó kết xuất ra file xml (không được đổi tên file) rồi gửi qua trang tncnonline.com.vn. Sau đó in 1 bản có đóng dấu gửi đến cơ quan thuế"]
+        "description": "Tra cứu giấy nộp tiền",
+        "catalogue": [[" giấy nộp tiền ", " chứng từ "]],
+        "keyword": [[" tra cứu ", " tìm "], [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "answer": ["Bạn vào TRA CỨU > TRA CỨU GIẤY NỘP TIỀN để tra cứu giấy nộp tiền đã gửi thành công hay chưa. Bạn xem chi tiết tại đây https://youtu.be/01lb6LcPFjs"]
+    },
+    {
+        "description": "Trình ký giấy nộp tiền",
+        "catalogue": [[" giấy nộp tiền ", " chứng từ "]],
+        "keyword": [" trình ký ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "answer": ["Bạn xem cách trình ký giấy nộp tiền tại đây https://youtu.be/hK3UR0vv76w"]
+    },
+    {
+        "description": "Lập giấy nộp tiền nộp thay",
+        "catalogue": [[" giấy nộp tiền ", " chứng từ "]],
+        "keyword": [" nộp thay ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "answer": ["Chức năng lập giấy nộp tiền nộp thay dùng để nộp thay tiền thuế cho DN khác. Bạn xem cách lập giấy nộp tiền nộp thay tại đây https://youtu.be/l46eaayXsZM"]
+    },
+    {
+        "description": "Lập giấy nộp tiền",
+        "catalogue": [[" giấy nộp tiền ", " chứng từ "]],
+        "keyword": [[" tạo ", " lập ", " khai ", " làm "], [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "answer": ["Bạn xem cách lập giấy nộp tiền tại đây https://youtu.be/ngmUka21pZI"]
+    },
+
+
+
+
+    {
+        "description": "Tra cứu tờ khai",
+        "catalogue": [[" tra cứu tờ khai ", " tra cứu tk ", " tìm tờ khai ", " tìm tk "]],
+        "keyword": [[" tra cứu tờ khai ", " tra cứu tk ", " tìm tờ khai ", " tìm tk "]],
+        "answer": ["Bạn vào TRA CỨU > TRA CỨU TỜ KHAI để tra cứu các tờ khai đã gửi cho cơ quan thuế. Bạn xem chi tiết tại đây https://youtu.be/crP8SxyLb3A"]
     },
 
 
     {
-        "description": "HTQT TNCN là gì",
-        "catalogue": [" htqt tncn "],
-        "keyword": [[" là gì ", " là cái gì ", " giới thiệu "]],
-        "answer": ["HTQT TNCN (Hỗ trợ quyết toán TNCN) là phần mềm dùng để khai hồ sơ quyết toán thuế TNCN và hồ sơ xin cấp MST cá nhân qua cơ quan chi trả. Download tại http://adf.ly/1bPQhy"]
+        "description": "Tra cứu thông báo nộp thuế",
+        "catalogue": [[" thông báo nộp thuế ", " tb nộp thuế ", " xác nhận nộp thuế ", " thông báo nộp tiền ", " tb nộp tiền ", " xác nhận nộp tiền "]],
+        "keyword": [[" thông báo nộp thuế ", " tb nộp thuế ", " xác nhận nộp thuế ", " thông báo nộp tiền ", " tb nộp tiền ", " xác nhận nộp tiền "]],
+        "answer": ["Thông báo nộp thuế đã thành công hay chưa bạn có thể vào email hoặc vào TRA CỨU > TRA CỨU THÔNG BÁO để xem. Thông báo ở email và thông báo trên trang web có giá trị như nhau. Bạn xem chi tiết cách tra cứu tại đây https://youtu.be/T9LztT_iVMA"]
     },
+
     {
-        "description": "HTQT TNCN là gì",
-        "catalogue": [" htqt tncn "],
-        "keyword": [[" phiên bản ", " version ", " bản "]],
-        "answer": ["Rất tiếc tôi không cập nhập phiên bản HTQT TNCN. Bạn vào đây để download phiên bản mới nhất nhé http://adf.ly/1bPQhy"]
-    },
-    {
-        "description": "Download HTQT TNCN",
-        "catalogue": [" htqt tncn "],
-        "keyword": [[" download ", " tải "]],
-        "answer": ["Bạn vào đây để download HTQT TNCN phiên bản mới nhất nhé http://adf.ly/1bPQhy"]
+        "description": "Tra cứu thông báo nộp tk",
+        "catalogue": [[" thông báo nộp tờ khai ", " tb nộp tờ khai ", " xác nhận nộp tờ khai ", " thông báo nộp tk ", " tb nộp tk ", " xác nhận nộp tk "]],
+        "keyword": [[" thông báo nộp tờ khai ", " tb nộp tờ khai ", " xác nhận nộp tờ khai ", " thông báo nộp tk ", " tb nộp tk ", " xác nhận nộp tk "]],
+        "answer": ["Thông báo nộp tờ khai đã thành công hay chưa bạn có thể vào email hoặc vào TRA CỨU > TRA CỨU THÔNG BÁO để xem. Thông báo ở email và thông báo trên trang web có giá trị như nhau. Bạn xem chi tiết cách tra cứu tại đây https://youtu.be/crP8SxyLb3A"]
     }
+
+]
+
+var a_tieumuc = [
+    {"muc": "1700", "tenmuc": "Thuế giá trị gia tăng", "tieumuc": "1701", "tentieumuc": "Thuế giá trị gia tăng hàng sản xuất - kinh doanh trong nước "},
+    {"muc": "1700", "tenmuc": "Thuế giá trị gia tăng", "tieumuc": "1704", "tentieumuc": "Thuế GTGT từ HĐ thăm dò,PT mỏ và KT dầu,khí TN(trừ H.định..) "},
+    {"muc": "1700", "tenmuc": "Thuế giá trị gia tăng", "tieumuc": "1705", "tentieumuc": "Thuế giá trị gia tăng từ hoạt động xổ số kiến thiết "},
+    {"muc": "1700", "tenmuc": "Thuế giá trị gia tăng", "tieumuc": "1749", "tentieumuc": "Thuế giá trị gia tăng khác "},
+
+    {"muc": "1050", "tenmuc": "Thuế thu nhập doanh nghiệp", "tieumuc": "1051", "tentieumuc": "Thuế thu nhập DN của các đơn vị hạch toán toàn ngành "},
+    {"muc": "1050", "tenmuc": "Thuế thu nhập doanh nghiệp", "tieumuc": "1052", "tentieumuc": "Thuế thu nhập DN của các đơn vị không hạch toán toàn ngành "},
+    {"muc": "1050", "tenmuc": "Thuế thu nhập doanh nghiệp", "tieumuc": "1053", "tentieumuc": "Thuế TNDN từ chuyển nhượng bất động sản "},
+    {"muc": "1050", "tenmuc": "Thuế thu nhập doanh nghiệp", "tieumuc": "1055", "tentieumuc": "Thuế thu nhập doanh nghiệp từ hoạt động chuyển nhượng vốn "},
+    {"muc": "1050", "tenmuc": "Thuế thu nhập doanh nghiệp", "tieumuc": "1056", "tentieumuc": "Thuế TNDN từ HĐ thăm dò,PT mỏ và KT dầu,khí TN(trừ H.định..) "},
+    {"muc": "1050", "tenmuc": "Thuế thu nhập doanh nghiệp", "tieumuc": "1057", "tentieumuc": "Thuế thu nhập doanh nghiệp từ hoạt động xổ số "},
+    {"muc": "1050", "tenmuc": "Thuế thu nhập doanh nghiệp", "tieumuc": "1099", "tentieumuc": "Thuế thu nhập doanh nghiệp khác "},
+
+    {"muc": "1800", "tenmuc": "Thuế môn bài", "tieumuc": "1801", "tentieumuc": "Thuế môn bài bậc 1 "},
+    {"muc": "1800", "tenmuc": "Thuế môn bài", "tieumuc": "1802", "tentieumuc": "Thuế môn bài bậc 2 "},
+    {"muc": "1800", "tenmuc": "Thuế môn bài", "tieumuc": "1803", "tentieumuc": "Thuế môn bài bậc 3 "},
+    {"muc": "1800", "tenmuc": "Thuế môn bài", "tieumuc": "1804", "tentieumuc": "Thuế môn bài bậc 4 "},
+    {"muc": "1800", "tenmuc": "Thuế môn bài", "tieumuc": "1805", "tentieumuc": "Thuế môn bài bậc 5 "},
+    {"muc": "1800", "tenmuc": "Thuế môn bài", "tieumuc": "1806", "tentieumuc": "Thuế môn bài bậc 6 "},
+    {"muc": "1800", "tenmuc": "Thuế môn bài", "tieumuc": "1849", "tentieumuc": "Thuế môn bài khác "},
+
+    {"muc": "1000", "tenmuc": "Thuế thu nhập cá nhân", "tieumuc": "1001", "tentieumuc": "Thuế thu nhập từ tiền lương, tiền công "},
+    {"muc": "1000", "tenmuc": "Thuế thu nhập cá nhân", "tieumuc": "1003", "tentieumuc": "Thuế thu nhập từ hoạt động sản xuất, kinh doanh của cá nhân "},
+    {"muc": "1000", "tenmuc": "Thuế thu nhập cá nhân", "tieumuc": "1004", "tentieumuc": "Thuế thu nhập từ đầu tư vốn của cá nhân "},
+    {"muc": "1000", "tenmuc": "Thuế thu nhập cá nhân", "tieumuc": "1005", "tentieumuc": "Thuế thu nhập từ chuyển nhượng vốn "},
+    {"muc": "1000", "tenmuc": "Thuế thu nhập cá nhân", "tieumuc": "1006", "tentieumuc": "Thuế thu nhập từ chuyển nhượng BĐS, NTK và NQT là BĐS "},
+    {"muc": "1000", "tenmuc": "Thuế thu nhập cá nhân", "tieumuc": "1007", "tentieumuc": "Thuế thu nhập từ trúng thưởng "},
+    {"muc": "1000", "tenmuc": "Thuế thu nhập cá nhân", "tieumuc": "1008", "tentieumuc": "Thuế thu nhập từ bản quyền, nhượng quyền thương mại "},
+    {"muc": "1000", "tenmuc": "Thuế thu nhập cá nhân", "tieumuc": "1012", "tentieumuc": "Thuế thu nhập từ thừa kế , quà biếu, quà tặng khác trừ BĐS "},
+    {"muc": "1000", "tenmuc": "Thuế thu nhập cá nhân", "tieumuc": "1014", "tentieumuc": "Thuế thu nhập từ dịch vụ cho thuê nhà, cho thuê mặt bằng "},
+    {"muc": "1000", "tenmuc": "Thuế thu nhập cá nhân", "tieumuc": "1049", "tentieumuc": "Thuế thu nhập khác "},
+
+    {"muc": "1100", "tenmuc": "Thu nợ thuế chuyển thu nhập", "tieumuc": "1101", "tentieumuc": "Thu nợ thuế chuyển thu nhập của các chủ đầu tư nước ngoài ở Việt nam về nước "},
+    {"muc": "1100", "tenmuc": "Thu nợ thuế chuyển thu nhập", "tieumuc": "1102", "tentieumuc": "Thu nợ thuế chuyển vốn của các chủ đầu tư trong các doanh nghiệp "},
+    {"muc": "1100", "tenmuc": "Thu nợ thuế chuyển thu nhập", "tieumuc": "1103", "tentieumuc": "Thu nợ thuế chuyển thu nhập của các chủ đầu tư Việt nam ở nước ngoài về nước "},
+
+    {"muc": "1150", "tenmuc": "Thu nhập sau thuế thu nhập", "tieumuc": "1151", "tentieumuc": "Thu nhập sau thuế thu nhập "},
+    {"muc": "1150", "tenmuc": "Thu nhập sau thuế thu nhập", "tieumuc": "1152", "tentieumuc": "Thu chênh lệch của doanh nghiệp công ích "},
+    {"muc": "1150", "tenmuc": "Thu nhập sau thuế thu nhập", "tieumuc": "1153", "tentieumuc": "Thu nhập sau thuế thu nhập từ hoạt động xổ số "},
+    {"muc": "1150", "tenmuc": "Thu nhập sau thuế thu nhập", "tieumuc": "1199", "tentieumuc": "Khác "},
+
+    {"muc": "1250", "tenmuc": "Thu tiền cấp quyền khai thác khoáng sản", "tieumuc": "1251", "tentieumuc": "Thu tiền cấp quyền khai thác khoáng sản "},
+
+    {"muc": "1300", "tenmuc": "Thuế sử dụng đất nông nghiệp", "tieumuc": "1301", "tentieumuc": "Đất trồng cây hàng năm "},
+    {"muc": "1300", "tenmuc": "Thuế sử dụng đất nông nghiệp", "tieumuc": "1302", "tentieumuc": "Đất trồng cây lâu năm "},
+    {"muc": "1300", "tenmuc": "Thuế sử dụng đất nông nghiệp", "tieumuc": "1349", "tentieumuc": "Đất khác "},
+
+    {"muc": "1350", "tenmuc": "Thuế chuyển quyền sử dụng đất", "tieumuc": "1351", "tentieumuc": "Đất ở "},
+    {"muc": "1350", "tenmuc": "Thuế chuyển quyền sử dụng đất", "tieumuc": "1352", "tentieumuc": "Đất xây dựng "},
+    {"muc": "1350", "tenmuc": "Thuế chuyển quyền sử dụng đất", "tieumuc": "1353", "tentieumuc": "Đất nông nghiệp "},
+    {"muc": "1350", "tenmuc": "Thuế chuyển quyền sử dụng đất", "tieumuc": "1354", "tentieumuc": "Đất ngư nghiệp "},
+    {"muc": "1350", "tenmuc": "Thuế chuyển quyền sử dụng đất", "tieumuc": "1399", "tentieumuc": "Đất dùng cho mục đích khác "},
+
+    {"muc": "1400", "tenmuc": "Thu tiền sử dụng đất", "tieumuc": "1401", "tentieumuc": "Đất ở "},
+    {"muc": "1400", "tenmuc": "Thu tiền sử dụng đất", "tieumuc": "1402", "tentieumuc": "Đất xây dựng "},
+    {"muc": "1400", "tenmuc": "Thu tiền sử dụng đất", "tieumuc": "1403", "tentieumuc": "Đất nông nghiệp "},
+    {"muc": "1400", "tenmuc": "Thu tiền sử dụng đất", "tieumuc": "1404", "tentieumuc": "Đất ngư nghiệp "},
+    {"muc": "1400", "tenmuc": "Thu tiền sử dụng đất", "tieumuc": "1405", "tentieumuc": "Đất xen kẹp "},
+    {"muc": "1400", "tenmuc": "Thu tiền sử dụng đất", "tieumuc": "1406", "tentieumuc": "Đất dôi dư "},
+    {"muc": "1400", "tenmuc": "Thu tiền sử dụng đất", "tieumuc": "1449", "tentieumuc": "Đất dùng cho mục đích khác "},
+
+    {"muc": "1500", "tenmuc": "Thuế nhà, đất", "tieumuc": "1501", "tentieumuc": "Thuế nhà "},
+    {"muc": "1500", "tenmuc": "Thuế nhà, đất", "tieumuc": "1502", "tentieumuc": "Thuế đất ở "},
+    {"muc": "1500", "tenmuc": "Thuế nhà, đất", "tieumuc": "1503", "tentieumuc": "Thuế đất ngư nghiệp "},
+    {"muc": "1500", "tenmuc": "Thuế nhà, đất", "tieumuc": "1549", "tentieumuc": "Thuế đất khác "},
+
+    {"muc": "1550", "tenmuc": "Thuế tài nguyên", "tieumuc": "1551", "tentieumuc": "Dầu khí "},
+    {"muc": "1550", "tenmuc": "Thuế tài nguyên", "tieumuc": "1552", "tentieumuc": "Nước thủy điện "},
+    {"muc": "1550", "tenmuc": "Thuế tài nguyên", "tieumuc": "1553", "tentieumuc": "Khoáng sản kim loại "},
+    {"muc": "1550", "tenmuc": "Thuế tài nguyên", "tieumuc": "1554", "tentieumuc": "Khoảng sản quý hiếm (vàng, bạc, đá quý) "},
+    {"muc": "1550", "tenmuc": "Thuế tài nguyên", "tieumuc": "1555", "tentieumuc": "Khoảng sản phi kim loại "},
+    {"muc": "1550", "tenmuc": "Thuế tài nguyên", "tieumuc": "1556", "tentieumuc": "Thủy, hải sản "},
+    {"muc": "1550", "tenmuc": "Thuế tài nguyên", "tieumuc": "1557", "tentieumuc": "Sản phẩm rừng tự nhiên "},
+    {"muc": "1550", "tenmuc": "Thuế tài nguyên", "tieumuc": "1599", "tentieumuc": "Tài nguyên khoáng sản khác "},
+
+    {"muc": "1600", "tenmuc": "Thuế sử dụng đất phi nông nghiệp", "tieumuc": "1601", "tentieumuc": "Thu từ đất ở tại nông thôn "},
+    {"muc": "1600", "tenmuc": "Thuế sử dụng đất phi nông nghiệp", "tieumuc": "1602", "tentieumuc": "Thu từ đất ở tại đô thị "},
+    {"muc": "1600", "tenmuc": "Thuế sử dụng đất phi nông nghiệp", "tieumuc": "1603", "tentieumuc": "Thu từ đất sản xuất, kinh doanh phi nông nghiệp "},
+    {"muc": "1600", "tenmuc": "Thuế sử dụng đất phi nông nghiệp", "tieumuc": "1649", "tentieumuc": "Thu từ đất phi nông nghiệp khác "},
+
+    {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1753", "tentieumuc": "Mặt hàng thuốc lá điếu, xì gà sản xuất trong nước "},
+    {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1754", "tentieumuc": "Mặt hàng rượu sản xuất trong nước "},
+    {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1755", "tentieumuc": "Mặt hàng ô tô dưới 24 chỗ ngồi sản xuất trong nước "},
+    {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1756", "tentieumuc": "Mặt hàng xăngnap-ta chế phẩm để pha chế xăng trong nước "},
+    {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1757", "tentieumuc": "Các dịch vụ, các hàng hóa khác sản xuất trong nước "},
+    {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1758", "tentieumuc": "Mặt hàng bia sản xuất trong nước "},
+    {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1761", "tentieumuc": "Thuế tiêu thụ đặc biệt từ hoạt động xổ số "},
+    {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1799", "tentieumuc": "Thuế tiêu thụ đặc biệt khác "},
+
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2001", "tentieumuc": "Thu từ xăng sản xuất trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2002", "tentieumuc": "Thu từ dầu Diezel sản xuất trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2003", "tentieumuc": "Thu từ dầu hỏa sản xuất trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2004", "tentieumuc": "Thu từ dầu mazut, dầu mỡ nhờn sản xuất trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2005", "tentieumuc": "Thu từ than đá sản xuất trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2006", "tentieumuc": "Thu từ d.dịch hydro, chloro, fluoro, carbon s.x trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2007", "tentieumuc": "Thu từ túi ni lông sản xuất trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2008", "tentieumuc": "Thu từ thuốc diệt cỏ sản xuất trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2009", "tentieumuc": "Thu từ nhiên liệu bay sản xuất trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2019", "tentieumuc": "Thu từ các sản phẩm, hàng hóa khác sản xuất trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2035", "tentieumuc": "Thu từ dàu mazut, dàu mỡ nhờn n.khẩu để bán trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2041", "tentieumuc": "Thu từ xăng nhập khẩu để bán trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2042", "tentieumuc": "Thu từ nhiên liệu bay nhập khẩu để bán trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2043", "tentieumuc": "Thu từ dầu Diezel nhập khẩu để bán trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2044", "tentieumuc": "Thu từ dầu hỏa nhập khẩu để bán trong nước "},
+    {"muc": "2000", "tenmuc": "Thuế bảo vệ môi trường", "tieumuc": "2045", "tentieumuc": "Thu từ dàu mazut, dàu mỡ nhờn n.khẩu để bán trong nước "},
+
+    {"muc": "2100", "tenmuc": "Phí xăng dầu", "tieumuc": "2101", "tentieumuc": "Phí xăng các loại "},
+    {"muc": "2100", "tenmuc": "Phí xăng dầu", "tieumuc": "2102", "tentieumuc": "Phí dầu Diezel "},
+    {"muc": "2100", "tenmuc": "Phí xăng dầu", "tieumuc": "2103", "tentieumuc": "Phí dầu hỏa "},
+    {"muc": "2100", "tenmuc": "Phí xăng dầu", "tieumuc": "2104", "tentieumuc": "Phí dầu ma zút "},
+    {"muc": "2100", "tenmuc": "Phí xăng dầu", "tieumuc": "2105", "tentieumuc": "Phí dầu mỡ nhờn "},
+
+    {"muc": "2150", "tenmuc": "Phí thuộc lĩnh vực nông nghiệp, lâm nghiệp, thủy sản", "tieumuc": "2151", "tentieumuc": "Phí kiểm dịch động vật, sản phẩm động vật và thực vật; "},
+    {"muc": "2150", "tenmuc": "Phí thuộc lĩnh vực nông nghiệp, lâm nghiệp, thủy sản", "tieumuc": "2152", "tentieumuc": "Phí giám sát khử trùng vật thể thuộc diện kiểm dịch thực vật "},
+    {"muc": "2150", "tenmuc": "Phí thuộc lĩnh vực nông nghiệp, lâm nghiệp, thủy sản", "tieumuc": "2153", "tentieumuc": "Phí kiểm soát giết mổ động vật; "},
+    {"muc": "2150", "tenmuc": "Phí thuộc lĩnh vực nông nghiệp, lâm nghiệp, thủy sản", "tieumuc": "2154", "tentieumuc": "Phí kiểm nghiệm dư lượng thuốc bảo vệ thực vậtvà sp thực vật "},
+    {"muc": "2150", "tenmuc": "Phí thuộc lĩnh vực nông nghiệp, lâm nghiệp, thủy sản", "tieumuc": "2155", "tentieumuc": "Phí kiểm nghiệm chất lượng thức ăn chăn nuôi; "},
+    {"muc": "2150", "tenmuc": "Phí thuộc lĩnh vực nông nghiệp, lâm nghiệp, thủy sản", "tieumuc": "2156", "tentieumuc": "Phí kiểm tra vệ sinh thú y; "},
+    {"muc": "2150", "tenmuc": "Phí thuộc lĩnh vực nông nghiệp, lâm nghiệp, thủy sản", "tieumuc": "2157", "tentieumuc": "Phí bảo vệ nguồn lợi thủy sản; "},
+    {"muc": "2150", "tenmuc": "Phí thuộc lĩnh vực nông nghiệp, lâm nghiệp, thủy sản", "tieumuc": "2158", "tentieumuc": "Phí kiểm nghiệm thuốc thú y; "},
+    {"muc": "2150", "tenmuc": "Phí thuộc lĩnh vực nông nghiệp, lâm nghiệp, thủy sản", "tieumuc": "2161", "tentieumuc": "Phí kiểm định, khảo nghiệm thuốc bảo vệ thực vật. "},
+    {"muc": "2150", "tenmuc": "Phí thuộc lĩnh vực nông nghiệp, lâm nghiệp, thủy sản", "tieumuc": "2162", "tentieumuc": "Phí bình tuyển công nhận cây mẹ, cây đầu dòng,vườn giống cây "},
+
+    {"muc": "2200", "tenmuc": "Phí thuộc lĩnh vực công nghiệp, xây dựng", "tieumuc": "2201", "tentieumuc": "Phí kiểm tra nhà nước về chất lượng hàng hóa "},
+    {"muc": "2200", "tenmuc": "Phí thuộc lĩnh vực công nghiệp, xây dựng", "tieumuc": "2202", "tentieumuc": "Phí thử nghiệm chất lượng sản phẩm, vật tư, nguyên vật liệu "},
+    {"muc": "2200", "tenmuc": "Phí thuộc lĩnh vực công nghiệp, xây dựng", "tieumuc": "2203", "tentieumuc": "Phí xây dựng "},
+    {"muc": "2200", "tenmuc": "Phí thuộc lĩnh vực công nghiệp, xây dựng", "tieumuc": "2204", "tentieumuc": "Phí đo đạc, lập bản đồ địa chính "},
+    {"muc": "2200", "tenmuc": "Phí thuộc lĩnh vực công nghiệp, xây dựng", "tieumuc": "2205", "tentieumuc": "Phí thẩm định cấp quyền sử dụng đất "},
+
+    {"muc": "2250", "tenmuc": "Phí thuộc lĩnh vực thương mại, đầu tư", "tieumuc": "2251", "tentieumuc": "Phí chứng nhận xuất xứ hàng hóa (C/O); "},
+    {"muc": "2250", "tenmuc": "Phí thuộc lĩnh vực thương mại, đầu tư", "tieumuc": "2252", "tentieumuc": "Phí chợ; "},
+    {"muc": "2250", "tenmuc": "Phí thuộc lĩnh vực thương mại, đầu tư", "tieumuc": "2253", "tentieumuc": "Phí thẩm định KD thương mại có ĐK thuộc các L.vực, các ngành "},
+    {"muc": "2250", "tenmuc": "Phí thuộc lĩnh vực thương mại, đầu tư", "tieumuc": "2254", "tentieumuc": "Phí thẩm định hồ sơ mua bán tàu, thuyền, tàu bay "},
+    {"muc": "2250", "tenmuc": "Phí thuộc lĩnh vực thương mại, đầu tư", "tieumuc": "2255", "tentieumuc": "Phí thẩm định DA đầu tư xây dựng (thẩm định và thiết kế...) "},
+    {"muc": "2250", "tenmuc": "Phí thuộc lĩnh vực thương mại, đầu tư", "tieumuc": "2256", "tentieumuc": "Phí thẩm định đánh giá trữ lượng khoáng sản; "},
+    {"muc": "2250", "tenmuc": "Phí thuộc lĩnh vực thương mại, đầu tư", "tieumuc": "2257", "tentieumuc": "Phí thẩm định; phân hạng cơ sở lưu trú du lịch; "},
+    {"muc": "2250", "tenmuc": "Phí thuộc lĩnh vực thương mại, đầu tư", "tieumuc": "2258", "tentieumuc": "Phí đấu thầu, đấu giá và thẩm định kết quả đấu thầu "},
+    {"muc": "2250", "tenmuc": "Phí thuộc lĩnh vực thương mại, đầu tư", "tieumuc": "2261", "tentieumuc": "Phí giám định hàng hóa xuất nhập khẩu. "},
+
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2301", "tentieumuc": "Phí sử dụng đường bộ; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2302", "tentieumuc": "Phí sử dụng đường thủy nội địa (phí bảo đảm hàng giang); "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2303", "tentieumuc": "Phí sử dụng đường biển; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2304", "tentieumuc": "Phí qua cầu; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2305", "tentieumuc": "Phí qua đò; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2306", "tentieumuc": "Phí qua phà; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2307", "tentieumuc": "Phí sử dụng cầu, bến, phao neo thuộc khu vực cảng biển "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2308", "tentieumuc": "Phí sử dụng cầu, bến, phao neo thuộc cảng, bến thủy nội địa; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2311", "tentieumuc": "Phí sử dụng cảng cá; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2312", "tentieumuc": "Phí sử dụng vị trí neo, đậu ngoài phạm vi cảng "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2313", "tentieumuc": "Phí bảo đảm hàng hải; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2314", "tentieumuc": "Phí hoa tiêu, dẫn đường trong lĩnh vực đường biển; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2315", "tentieumuc": "Phí hoa tiêu, dẫn đường trong lĩnh vực đường thủy nội địa; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2316", "tentieumuc": "Phí hoa tiêu, dẫn đường trong lĩnh vực hàng không; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2317", "tentieumuc": "Phí trọng tải tàu, thuyền; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2318", "tentieumuc": "Phí luồng, lạch đường thủy nội địa; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2321", "tentieumuc": "Phí sử dụng lề đường, bến, bãi, mặt nước; "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2322", "tentieumuc": "Phí kiểm định an toàn kỹ thuật và chất lượng thiết bị,vật tư "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2323", "tentieumuc": "Phí sử dụng kết cấu hạ tầng đường sắt quốc gia "},
+    {"muc": "2300", "tenmuc": "Phí thuộc lĩnh vực giao thông vận tải", "tieumuc": "2324", "tentieumuc": "Phí lưu giữ, bảo quản tang vật, phương tiện "},
+
+    {"muc": "2350", "tenmuc": "Phí thuộc lĩnh vực thông tin liên lạc", "tieumuc": "2351", "tentieumuc": "Phí sử dụng tần số vô tuyến điện "},
+    {"muc": "2350", "tenmuc": "Phí thuộc lĩnh vực thông tin liên lạc", "tieumuc": "2352", "tentieumuc": "Phí cấp tên miền, địa chỉ Internet "},
+    {"muc": "2350", "tenmuc": "Phí thuộc lĩnh vực thông tin liên lạc", "tieumuc": "2353", "tentieumuc": "Phí sử dụng kho số viễn thông "},
+    {"muc": "2350", "tenmuc": "Phí thuộc lĩnh vực thông tin liên lạc", "tieumuc": "2354", "tentieumuc": "Phí khai thác và sử dụng tài liệu dầu khí "},
+    {"muc": "2350", "tenmuc": "Phí thuộc lĩnh vực thông tin liên lạc", "tieumuc": "2355", "tentieumuc": "Phí K.thác và sd tài liệu đất đai, thăm dò địa chất và KT mỏ "},
+    {"muc": "2350", "tenmuc": "Phí thuộc lĩnh vực thông tin liên lạc", "tieumuc": "2356", "tentieumuc": "Phí K.thác và SD tài liệu khí tượng thủy văn, MT nước và KK "},
+    {"muc": "2350", "tenmuc": "Phí thuộc lĩnh vực thông tin liên lạc", "tieumuc": "2357", "tentieumuc": "Phí K.thác, SD tư liệu tại thư viện, bảo tàng, khu di tích.. "},
+    {"muc": "2350", "tenmuc": "Phí thuộc lĩnh vực thông tin liên lạc", "tieumuc": "2358", "tentieumuc": "Phí thẩm định điều kiện hoạt động bưu chính, viễn thông "},
+
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2401", "tentieumuc": "Phí K.định KT máy móc, TB, vật tư, các chất có Y/C về ATLĐ "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2402", "tentieumuc": "Phí K.định KT máy móc, TB có Y/C về AT đặc thù ngành CN "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2403", "tentieumuc": "Phí an ninh, trật tự; "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2404", "tentieumuc": "Phí phòng cháy, chữa cháy; "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2405", "tentieumuc": "Phí thẩm định cấp phép sử dụng vật liệu nổ công nghiệp; "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2406", "tentieumuc": "Phí k.tra, đánh giá, cấp giấy CN quốc tế về an ninh tàu biển "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2407", "tentieumuc": "Phí T.định, phê duyệt an ninh cảng biển, sổ lý lịch tàu biển "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2408", "tentieumuc": "Phí thẩm định cấp phép hoạt động cai nghiện ma túy; "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2411", "tentieumuc": "Phí T.định cấp phép HĐ hoá chất nguy hiểm,đánh giá rủi ro HC "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2412", "tentieumuc": "Phí xác minh giấy tờ, TL theo Y/C của tổ chức, CN trong nước "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2413", "tentieumuc": "Phí xác minh giấy tờ, TL theo Y/C của tổ chức, CN nước ngoài "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2414", "tentieumuc": "Phí xử lý hồ sơ cấp Giấy chứng nhận miễn thị thực. "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2415", "tentieumuc": "Phí thẩm định điều kiện về an ninh trật tự "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2416", "tentieumuc": "Phí sát hạch cấp chứng chỉ nghiệp vụ bảo vệ "},
+    {"muc": "2400", "tenmuc": "Phí thuộc lĩnh vực an ninh, xã hội, an toàn xã hội", "tieumuc": "2417", "tentieumuc": "Phí trông giữ xe đạp, xe máy, ô tô và phí trông giữ phương tiện tham gia giao thông bị tạm giữ do vi phạm pháp luật "},
+
+    {"muc": "2450", "tenmuc": "Phí thuộc lĩnh vực văn hóa, xã hội", "tieumuc": "2451", "tentieumuc": "Phí giám định di vật, cổ vật, bảo vật quốc gia; "},
+    {"muc": "2450", "tenmuc": "Phí thuộc lĩnh vực văn hóa, xã hội", "tieumuc": "2452", "tentieumuc": "Phí tham quan danh lam thắng cảnh, di tích lịch sử, CT V.hóa "},
+    {"muc": "2450", "tenmuc": "Phí thuộc lĩnh vực văn hóa, xã hội", "tieumuc": "2453", "tentieumuc": "Phí T.định N.dung văn hoá phẩm X.khẩu, N.khẩu,kịch bản phim. "},
+    {"muc": "2450", "tenmuc": "Phí thuộc lĩnh vực văn hóa, xã hội", "tieumuc": "2454", "tentieumuc": "Phí giới thiệu việc làm. "},
+
+    {"muc": "2500", "tenmuc": "Phí thuộc lĩnh vực giáo dục và đào tạo", "tieumuc": "2501", "tentieumuc": "Học phí (không bao gồm học phí giáo dục không chính qui) "},
+    {"muc": "2500", "tenmuc": "Phí thuộc lĩnh vực giáo dục và đào tạo", "tieumuc": "2502", "tentieumuc": "Phí sát hạch đủ ĐK cấp văn bằng, chứng chỉ, G.phép hành nghề "},
+    {"muc": "2500", "tenmuc": "Phí thuộc lĩnh vực giáo dục và đào tạo", "tieumuc": "2503", "tentieumuc": "Phí dự thi, dự tuyển. "},
+
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2551", "tentieumuc": "Viện phí và các loại phí khám chữa bệnh "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2552", "tentieumuc": "Phí phòng, chống dịch bệnh cho động vật; chẩn đoán thú y. "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2553", "tentieumuc": "Phí y tế dự phòng; "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2554", "tentieumuc": "Phí giám định y khoa; "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2555", "tentieumuc": "Phí kiểm nghiệm mẫu thuốc, N.liệu làm thuốc, thuốc, mỹ phẩm "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2556", "tentieumuc": "Phí kiểm dịch y tế; "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2557", "tentieumuc": "Phí kiểm nghiệm trang thiết bị y tế; "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2558", "tentieumuc": "Phí kiểm tra, kiểm nghiệm vệ sinh an toàn thực phẩm; "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2561", "tentieumuc": "Phí thẩm định tiêu chuẩn và điều kiện hành nghề y; "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2562", "tentieumuc": "Phí thẩm định đăng ký kinh doanh thuốc; "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2563", "tentieumuc": "Phí thẩm định hồ sơ nhập khẩu thuốc thành phẩm chưa có số ĐK "},
+    {"muc": "2550", "tenmuc": "Phí thuộc lĩnh vực y tế", "tieumuc": "2564", "tentieumuc": "Phí cấp, đồi thẻ bảo hiểm y tế "},
+
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2602", "tentieumuc": "Phí thẩm định báo cáo đánh giá tác động môi trường; "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2603", "tentieumuc": "Phí vệ sinh; "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2604", "tentieumuc": "Phí phòng, chống thiên tai; "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2605", "tentieumuc": "Phí xét nghiệm, thẩm định, giám định; tra cứu, cung cấp TT.. "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2606", "tentieumuc": "Phí lập và gửi đơn đăng ký quốc tế về sở hữu công nghiệp; "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2607", "tentieumuc": "Phí cung cấp DV để giải quyết khiếu nại sở hữu công nghiệp "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2608", "tentieumuc": "Phí T.định, CC thông tin về văn bằng bảo hộ giống cây trồng "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2611", "tentieumuc": "Phí cấp, hướng dẫn và duy trì sử dụng mã số, mã vạch "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2612", "tentieumuc": "Phí thẩm định an toàn và sử dụng dịch vụ an toàn bức xạ. "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2613", "tentieumuc": "Phí thẩm định ĐK hoạt động về khoa học công nghệ, môi trường "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2614", "tentieumuc": "Phí T.định đề án, báo cáo thăm dò, K.thác,đánh giá trữ lượng "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2615", "tentieumuc": "Phí thẩm định hồ sơ, điều kiện hành nghề khoan nước dưới đất; "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2616", "tentieumuc": "Phí thẩm định hợp đồng chuyển giao công nghệ; "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2617", "tentieumuc": "Phí kiểm định phương tiện đo lường. "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2618", "tentieumuc": "Phí bảo vệ môi trường đối với nước thải sinh hoạt "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2621", "tentieumuc": "Phí bảo vệ môi trường đối với nước thải công nghiệp "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2622", "tentieumuc": "Phí bảo vệ môi trường đối với khí thải "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2623", "tentieumuc": "Phí bảo vệ môi trường đối với chất thải rắn "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2624", "tentieumuc": "Phí BVMT đối với khai thác khoáng sản là dầu thô và khí TN "},
+    {"muc": "2600", "tenmuc": "Phí thuộc lĩnh vực khoa học, công nghệ và môi trường", "tieumuc": "2625", "tentieumuc": "Phí bảo vệ môi trường đối với khai thác khoáng sản còn lại "},
+
+    {"muc": "2650", "tenmuc": "Phí thuộc lĩnh vực tài chính, ngân hàng, hải quan", "tieumuc": "2651", "tentieumuc": "Phí cung cấp thông tin về tài chính doanh nghiệp: "},
+    {"muc": "2650", "tenmuc": "Phí thuộc lĩnh vực tài chính, ngân hàng, hải quan", "tieumuc": "2652", "tentieumuc": "Phí phát hành, thanh toán tín phiếu kho bạc; "},
+    {"muc": "2650", "tenmuc": "Phí thuộc lĩnh vực tài chính, ngân hàng, hải quan", "tieumuc": "2653", "tentieumuc": "Phí phát hành, thanh toán trái phiếu kho bạc; "},
+    {"muc": "2650", "tenmuc": "Phí thuộc lĩnh vực tài chính, ngân hàng, hải quan", "tieumuc": "2654", "tentieumuc": "Phí T/c phát hành, TT trái phiếu đ.tư cho công trình do NSNN "},
+    {"muc": "2650", "tenmuc": "Phí thuộc lĩnh vực tài chính, ngân hàng, hải quan", "tieumuc": "2655", "tentieumuc": "Phí P.hành, TT trái phiếu để huy động vốn cho NH P.triển VN "},
+    {"muc": "2650", "tenmuc": "Phí thuộc lĩnh vực tài chính, ngân hàng, hải quan", "tieumuc": "2656", "tentieumuc": "Phí bảo quản, cất giữ tài sản quý hiếm, chứng chỉ tại KBNN "},
+    {"muc": "2650", "tenmuc": "Phí thuộc lĩnh vực tài chính, ngân hàng, hải quan", "tieumuc": "2657", "tentieumuc": "Phí cấp bảo lãnh của Chính phủ (do BTC hoặc NHNN VN cấp) "},
+    {"muc": "2650", "tenmuc": "Phí thuộc lĩnh vực tài chính, ngân hàng, hải quan", "tieumuc": "2658", "tentieumuc": "Phí quản lý cho vay của Ngân hàng Phát triển Việt Nam; "},
+    {"muc": "2650", "tenmuc": "Phí thuộc lĩnh vực tài chính, ngân hàng, hải quan", "tieumuc": "2661", "tentieumuc": "Phí sử dụng thiết bị, cơ sở hạ tầng chứng khoán; "},
+    {"muc": "2650", "tenmuc": "Phí thuộc lĩnh vực tài chính, ngân hàng, hải quan", "tieumuc": "2662", "tentieumuc": "Phí hoạt động chứng khoán; "},
+
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2701", "tentieumuc": "Án phí (hình sự, dân sự, kinh tế, lao động, hành chính) "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2702", "tentieumuc": "Phí giám định tư pháp "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2703", "tentieumuc": "Phí cung cấp TT về cầm cố, T.chấp, B.lãnh T.sản ĐKGD bảo đảm "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2704", "tentieumuc": "Phí cung cấp thông tin về tài sản cho thuê tài chính "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2705", "tentieumuc": "Phí cấp bản sao, bản trích lục bản án, QĐ và giấy CN xoá án "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2706", "tentieumuc": "Phí thi hành án "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2707", "tentieumuc": "Phí tống đạt, UT tư pháp theo Y/C của CQ có thẩm quyền củaNN "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2708", "tentieumuc": "Phí xuất khẩu lao động "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2711", "tentieumuc": "Phí phá sản "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2712", "tentieumuc": "Phí T.định HS ĐN hưởng miễn trừ T.thuận H.chế C.tranh bị cấm "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2713", "tentieumuc": "Phí giải quyết việc nuôi con nuôi đối với người nước ngoài "},
+    {"muc": "2700", "tenmuc": "Phí thuộc lĩnh vực tư pháp", "tieumuc": "2714", "tentieumuc": "Phí xử lý vụ việc cạnh tranh "},
+
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2751", "tentieumuc": "Lệ phí quốc tịch, hộ tịch, hộ khẩu, chứng minh nhân dân "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2752", "tentieumuc": "Lệ phí cấp hộ chiếu, thị thực xuất cảnh, nhập cảnh "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2753", "tentieumuc": "Lệ phí qua lại cửa khẩu biên giới "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2754", "tentieumuc": "Lệ phí AD tại CQ đại diện ngoại giao, cơ quan lãnh sự ở NN "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2755", "tentieumuc": "Lệ phí nộp đơn YC Toà án VN C.nhận,thi hành tại VN bản án NN "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2756", "tentieumuc": "LP nộp đơn YC TA VN không CN bản án, Q.Định dân sự của TA NN "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2757", "tentieumuc": "LP nộp đơn YC T.án VN CN và cho thi hành tại VN QĐ của TT NN "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2758", "tentieumuc": "LP nộp đơn YC T.án K.luận cuộc đình công hợp pháp hoặc bấtHP "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2761", "tentieumuc": "Lệ phí kháng cáo "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2762", "tentieumuc": "Lệ phí tòa án liên quan đến trọng tài "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2763", "tentieumuc": "Lệ phí cấp giấy phép lao động cho người NN làm việc tại VN "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2764", "tentieumuc": "Lệ phí cấp phiếu lý lịch tư pháp "},
+    {"muc": "2750", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền và N.vụ của công dân", "tieumuc": "2765", "tentieumuc": "Lệ phí cấp thẻ đi lại của doanh nhân APEC "},
+
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2805", "tentieumuc": "Lệ phí địa chính; "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2806", "tentieumuc": "Lệ phí đăng ký giao dịch bảo đảm; "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2807", "tentieumuc": "Lệ phí cấp giấy chứng nhận quyền tác giả; "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2808", "tentieumuc": "LP nộp đơn và cấp văn bằng bảo hộ, ĐK chuyển giao quyền SHCN "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2811", "tentieumuc": "LP duy trì, gia hạn, chấm dứt, k.phục H.lực văn bằng bảo hộ "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2812", "tentieumuc": "Lệ phí đăng bạ, công bố thông tin sở hữu công nghiệp; "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2813", "tentieumuc": "Lệ phí cấp chứng chỉ hành nghề, đăng bạ đại diện sở hữu CN "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2814", "tentieumuc": "LP ĐK, cấp, C.bố,duy trì văn bằng bảo hộ giống cây trồng mới "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2815", "tentieumuc": "Lệ phí cấp giấy phép xây dựng; "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2816", "tentieumuc": "LP Đ.ký, cấp biển PT giao thông (không kể PTGT đường thuỷ) "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2817", "tentieumuc": "Lệ phí đăng ký, cấp biển phương tiện giao thông đường thuỷ "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2818", "tentieumuc": "Lệ phí đăng ký, cấp biển xe máy chuyên dùng; "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2821", "tentieumuc": "Lệ phí cấp chứng chỉ cho tàu bay; "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2822", "tentieumuc": "Lệ phí cấp biển số nhà, "},
+    {"muc": "2800", "tenmuc": "Lệ phí QL nhà nước liên quan đến quyền sh, quyền SD tài sản", "tieumuc": "2823", "tentieumuc": "LP cấp giấy CN quyền sở hữu nhà ở, quyền SH công trình XD "},
+
+    {"muc": "2850", "tenmuc": "Lệ phí quản lý nhà nước liên quan đến sản xuất, kinh doanh", "tieumuc": "2851", "tentieumuc": "LP cấp giấy CN ĐKKD, cung cấp TT đ.với các L.hình KT, hộ KD "},
+    {"muc": "2850", "tenmuc": "Lệ phí quản lý nhà nước liên quan đến sản xuất, kinh doanh", "tieumuc": "2852", "tentieumuc": "LP ĐK khai báo hoá chất nguy hiểm, hoá chất độc hại, máy, TB "},
+    {"muc": "2850", "tenmuc": "Lệ phí quản lý nhà nước liên quan đến sản xuất, kinh doanh", "tieumuc": "2853", "tentieumuc": "LP cấp chứng nhận,chứng chỉ,cấp phép,cấp giấy phép,cấp thẻ,đăng ký,kiểm tra đối với các hoạt động,các ngành nghề KD theo quy định của pháp luật "},
+    {"muc": "2850", "tenmuc": "Lệ phí quản lý nhà nước liên quan đến sản xuất, kinh doanh", "tieumuc": "2854", "tentieumuc": "LP đặt chi nhánh, vp đại diện của các t/c kinh tế NN tại VN "},
+    {"muc": "2850", "tenmuc": "Lệ phí quản lý nhà nước liên quan đến sản xuất, kinh doanh", "tieumuc": "2855", "tentieumuc": "Lệ phí cấp hạn ngạch xuất khẩu, nhập khẩu "},
+    {"muc": "2850", "tenmuc": "Lệ phí quản lý nhà nước liên quan đến sản xuất, kinh doanh", "tieumuc": "2856", "tentieumuc": "Lệ phí cấp và dán tem kiểm soát băng, đĩa có chương trình "},
+    {"muc": "2850", "tenmuc": "Lệ phí quản lý nhà nước liên quan đến sản xuất, kinh doanh", "tieumuc": "2857", "tentieumuc": "Lệ phí độc quyền hoạt động trong ngành dầu khí "},
+    {"muc": "2850", "tenmuc": "Lệ phí quản lý nhà nước liên quan đến sản xuất, kinh doanh", "tieumuc": "2858", "tentieumuc": "LP độc quyền HĐ trong một số ngành, nghề TNguyên khoáng sản "},
+    {"muc": "2850", "tenmuc": "Lệ phí quản lý nhà nước liên quan đến sản xuất, kinh doanh", "tieumuc": "2859", "tentieumuc": "Lệ phí cấp giấy phép sử dụng tần số vô tuyến điện "},
+
+    {"muc": "3000", "tenmuc": "Lệ phí quản lý nhà nước đặt biệt về chủ quyền quốc gia", "tieumuc": "3001", "tentieumuc": "Lệ phí ra, vào cảng biển; "},
+    {"muc": "3000", "tenmuc": "Lệ phí quản lý nhà nước đặt biệt về chủ quyền quốc gia", "tieumuc": "3002", "tentieumuc": "Lệ phí ra, vào cảng, bến thủy nội địa; "},
+    {"muc": "3000", "tenmuc": "Lệ phí quản lý nhà nước đặt biệt về chủ quyền quốc gia", "tieumuc": "3003", "tentieumuc": "Lệ phí ra, vào cảng hàng không, sân bay, "},
+    {"muc": "3000", "tenmuc": "Lệ phí quản lý nhà nước đặt biệt về chủ quyền quốc gia", "tieumuc": "3004", "tentieumuc": "Lệ phí cấp phép bay; "},
+    {"muc": "3000", "tenmuc": "Lệ phí quản lý nhà nước đặt biệt về chủ quyền quốc gia", "tieumuc": "3005", "tentieumuc": "Lệ phí hàng hóa, hành lý, phương tiện vận tải quá cảnh; "},
+    {"muc": "3000", "tenmuc": "Lệ phí quản lý nhà nước đặt biệt về chủ quyền quốc gia", "tieumuc": "3006", "tentieumuc": "LP cấp phép HĐ ksát, Tkế, lắp đặt, sc, bảo dưỡng các c.trình "},
+    {"muc": "3000", "tenmuc": "Lệ phí quản lý nhà nước đặt biệt về chủ quyền quốc gia", "tieumuc": "3007", "tentieumuc": "Lệ phí hoa hồng chữ ký; "},
+    {"muc": "3000", "tenmuc": "Lệ phí quản lý nhà nước đặt biệt về chủ quyền quốc gia", "tieumuc": "3008", "tentieumuc": "Lệ phí hoa hồng sản xuất. "},
+    {"muc": "3000", "tenmuc": "Lệ phí quản lý nhà nước đặt biệt về chủ quyền quốc gia", "tieumuc": "3009", "tentieumuc": "Lệ phí cấp giấy phép cho hoạt động tàu, thuyền nước ngoài "},
+
+    {"muc": "3050", "tenmuc": "Lệ phí quản lý nhà nước trong các lĩnh vực khác", "tieumuc": "3051", "tentieumuc": "Lệ phí cấp phép sử dụng con dấu; "},
+    {"muc": "3050", "tenmuc": "Lệ phí quản lý nhà nước trong các lĩnh vực khác", "tieumuc": "3054", "tentieumuc": "Lệ phí cấp giấy đăng ký nguồn phóng xạ, máy phát bức xạ "},
+    {"muc": "3050", "tenmuc": "Lệ phí quản lý nhà nước trong các lĩnh vực khác", "tieumuc": "3055", "tentieumuc": "Lệ phí cấp giấy đăng ký địa điểm cất giữ chất thải phóng xạ; "},
+    {"muc": "3050", "tenmuc": "Lệ phí quản lý nhà nước trong các lĩnh vực khác", "tieumuc": "3056", "tentieumuc": "Lệ phí cấp văn bằng, chứng chỉ; "},
+    {"muc": "3050", "tenmuc": "Lệ phí quản lý nhà nước trong các lĩnh vực khác", "tieumuc": "3057", "tentieumuc": "LP chứng thực theo yêu cầu hoặc theo quy định của pháp luật "},
+    {"muc": "3050", "tenmuc": "Lệ phí quản lý nhà nước trong các lĩnh vực khác", "tieumuc": "3058", "tentieumuc": "Lệ phí hợp pháp hóa và chứng nhận lãnh sự; "},
+    {"muc": "3050", "tenmuc": "Lệ phí quản lý nhà nước trong các lĩnh vực khác", "tieumuc": "3061", "tentieumuc": "Lệ phí công chứng; "},
+    {"muc": "3050", "tenmuc": "Lệ phí quản lý nhà nước trong các lĩnh vực khác", "tieumuc": "3062", "tentieumuc": "Lệ phí cấp GP quản lý vũ khí, vật liệu nổ, công cụ hỗ trợ "},
+    {"muc": "3050", "tenmuc": "Lệ phí quản lý nhà nước trong các lĩnh vực khác", "tieumuc": "3063", "tentieumuc": "Lệ phí cấp giấy phép quy hoạch "},
+
+    {"muc": "3200", "tenmuc": "Thu tiền bán hàng hóa, vật tư dự trữ nhà nước", "tieumuc": "3201", "tentieumuc": "Lương thực "},
+    {"muc": "3200", "tenmuc": "Thu tiền bán hàng hóa, vật tư dự trữ nhà nước", "tieumuc": "3202", "tentieumuc": "Nhiên liệu "},
+    {"muc": "3200", "tenmuc": "Thu tiền bán hàng hóa, vật tư dự trữ nhà nước", "tieumuc": "3203", "tentieumuc": "Vật tư kỹ thuật "},
+    {"muc": "3200", "tenmuc": "Thu tiền bán hàng hóa, vật tư dự trữ nhà nước", "tieumuc": "3204", "tentieumuc": "Trang thiết bị kỹ thuật "},
+    {"muc": "3200", "tenmuc": "Thu tiền bán hàng hóa, vật tư dự trữ nhà nước", "tieumuc": "3249", "tentieumuc": "Khác "},
+
+    {"muc": "3250", "tenmuc": "Thu tiền bán hàng hóa, vật tư dự trữ nhà nước chuyên ngành", "tieumuc": "3251", "tentieumuc": "Lương thực "},
+    {"muc": "3250", "tenmuc": "Thu tiền bán hàng hóa, vật tư dự trữ nhà nước chuyên ngành", "tieumuc": "3252", "tentieumuc": "Nhiên liệu "},
+    {"muc": "3250", "tenmuc": "Thu tiền bán hàng hóa, vật tư dự trữ nhà nước chuyên ngành", "tieumuc": "3253", "tentieumuc": "Vật tư kỹ thuật "},
+    {"muc": "3250", "tenmuc": "Thu tiền bán hàng hóa, vật tư dự trữ nhà nước chuyên ngành", "tieumuc": "3254", "tentieumuc": "Trang thiết bị kỹ thuật "},
+    {"muc": "3250", "tenmuc": "Thu tiền bán hàng hóa, vật tư dự trữ nhà nước chuyên ngành", "tieumuc": "3299", "tentieumuc": "Khác "},
+
+    {"muc": "3300", "tenmuc": "Thu tiền bán nhà thuộc sở hữu của nhà nước", "tieumuc": "3301", "tentieumuc": "Tiền bán nhà thuộc SHNN "},
+    {"muc": "3300", "tenmuc": "Thu tiền bán nhà thuộc sở hữu của nhà nước", "tieumuc": "3302", "tentieumuc": "Thu tiền thanh lý nhà làm việc "},
+    {"muc": "3300", "tenmuc": "Thu tiền bán nhà thuộc sở hữu của nhà nước", "tieumuc": "3349", "tentieumuc": "Khác "},
+
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3351", "tentieumuc": "Mô tô "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3352", "tentieumuc": "Ô tô con, ô tô tải "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3353", "tentieumuc": "Xe chuyên dùng "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3354", "tentieumuc": "Tàu, thuyền "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3355", "tentieumuc": "Đồ gỗ "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3356", "tentieumuc": "Trang thiết bị kỹ thuật chuyên dụng "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3357", "tentieumuc": "Máy tính, photo, máy fax "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3358", "tentieumuc": "Điều hòa nhiệt độ "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3361", "tentieumuc": "Thiết bị phòng, chữa cháy "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3362", "tentieumuc": "Thu bán cây đứng "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3363", "tentieumuc": "Thu tiền bán tài sản, vật tư thu hồi thuộc kết cấu hạ tầng đường sắt "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3364", "tentieumuc": "Thu từ bồi thường tài sản "},
+    {"muc": "3350", "tenmuc": "Thu từ tài sản khác", "tieumuc": "3399", "tentieumuc": "Các tài sản khác "},
+
+    {"muc": "3400", "tenmuc": "Thu tiền bán tài sản vô hình", "tieumuc": "3401", "tentieumuc": "Quyền khai thác khoáng sản, tài nguyên "},
+    {"muc": "3400", "tenmuc": "Thu tiền bán tài sản vô hình", "tieumuc": "3402", "tentieumuc": "Quyền đánh bắt hải sản "},
+    {"muc": "3400", "tenmuc": "Thu tiền bán tài sản vô hình", "tieumuc": "3403", "tentieumuc": "Quyền hàng hải "},
+    {"muc": "3400", "tenmuc": "Thu tiền bán tài sản vô hình", "tieumuc": "3404", "tentieumuc": "Quyền hàng không "},
+    {"muc": "3400", "tenmuc": "Thu tiền bán tài sản vô hình", "tieumuc": "3405", "tentieumuc": "Bằng phát minh, sáng chế "},
+    {"muc": "3400", "tenmuc": "Thu tiền bán tài sản vô hình", "tieumuc": "3406", "tentieumuc": "Bản quyền, nhãn hiệu thương mại "},
+    {"muc": "3400", "tenmuc": "Thu tiền bán tài sản vô hình", "tieumuc": "3449", "tentieumuc": "Khác "},
+
+    {"muc": "3450", "tenmuc": "thu từ bán tài sản được xác lập sử hữu nhà nước", "tieumuc": "3451", "tentieumuc": "Tài sản vô thừ nhận "},
+    {"muc": "3450", "tenmuc": "thu từ bán tài sản được xác lập sử hữu nhà nước", "tieumuc": "3452", "tentieumuc": "Di sản, khảo cổ tìm thấy trong lòng đất "},
+    {"muc": "3450", "tenmuc": "thu từ bán tài sản được xác lập sử hữu nhà nước", "tieumuc": "3453", "tentieumuc": "Tài sản không được quyền thừa kế "},
+    {"muc": "3450", "tenmuc": "thu từ bán tài sản được xác lập sử hữu nhà nước", "tieumuc": "3499", "tentieumuc": "Khác "},
+
+    {"muc": "3600", "tenmuc": "Thu tiền cho thuê mặt đất, mặt nước", "tieumuc": "3601", "tentieumuc": "Thu tiền thuê mặt đất "},
+    {"muc": "3600", "tenmuc": "Thu tiền cho thuê mặt đất, mặt nước", "tieumuc": "3602", "tentieumuc": "Thu tiền thuê mặt nước "},
+    {"muc": "3600", "tenmuc": "Thu tiền cho thuê mặt đất, mặt nước", "tieumuc": "3603", "tentieumuc": "Thu tiền thuê mặt đất, mặt nước từ các HĐ thăm dò,KT dầu khí "},
+    {"muc": "3600", "tenmuc": "Thu tiền cho thuê mặt đất, mặt nước", "tieumuc": "3604", "tentieumuc": "Thu tiền cho thuê mặt đất,mặt nước trong khu CN,khu chế xuất "},
+    {"muc": "3600", "tenmuc": "Thu tiền cho thuê mặt đất, mặt nước", "tieumuc": "3649", "tentieumuc": "Thu tiền cho thuê mặt đất, mặt nước, mặt biển khác "},
+
+    {"muc": "3650", "tenmuc": "Thu từ tài sản Nhà nước giao cho DN và các tổ chức kinh tế", "tieumuc": "3651", "tentieumuc": "Thu nợ tiền sử dụng vốn ngân sách nhà nước "},
+    {"muc": "3650", "tenmuc": "Thu từ tài sản Nhà nước giao cho DN và các tổ chức kinh tế", "tieumuc": "3652", "tentieumuc": "Thu KHCB nhà ở thuộc SHNN "},
+    {"muc": "3650", "tenmuc": "Thu từ tài sản Nhà nước giao cho DN và các tổ chức kinh tế", "tieumuc": "3653", "tentieumuc": "Thu nợ tiền thu hồi vốn của DNNN và các tổ chức kinh tế nhà nước "},
+    {"muc": "3650", "tenmuc": "Thu từ tài sản Nhà nước giao cho DN và các tổ chức kinh tế", "tieumuc": "3654", "tentieumuc": "Thu thanh lý TSCĐ của các DN Nhà nước và các t/c kt nhà nước "},
+    {"muc": "3650", "tenmuc": "Thu từ tài sản Nhà nước giao cho DN và các tổ chức kinh tế", "tieumuc": "3699", "tentieumuc": "Thu khác từ tài sản NN giao cho DN và các tổ chức kinh tế "},
+
+    {"muc": "3700", "tenmuc": "Thu chênh lệch giá hàng xuất khẩu, nhập khẩu và phụ thu", "tieumuc": "3702", "tentieumuc": "Phụ thu vệ giá lắp đặt điện thoại "},
+    {"muc": "3700", "tenmuc": "Thu chênh lệch giá hàng xuất khẩu, nhập khẩu và phụ thu", "tieumuc": "3703", "tentieumuc": "Phụ thu về giá bán điện "},
+    {"muc": "3700", "tenmuc": "Thu chênh lệch giá hàng xuất khẩu, nhập khẩu và phụ thu", "tieumuc": "3704", "tentieumuc": "Phụ thu về giá bán nước "},
+    {"muc": "3700", "tenmuc": "Thu chênh lệch giá hàng xuất khẩu, nhập khẩu và phụ thu", "tieumuc": "3705", "tentieumuc": "Phụ thu về giá bán mặt hàng nhựa PVC "},
+    {"muc": "3700", "tenmuc": "Thu chênh lệch giá hàng xuất khẩu, nhập khẩu và phụ thu", "tieumuc": "3749", "tentieumuc": "Khác "},
+
+    {"muc": "3750", "tenmuc": "Thu về dầu thô theo hiệp định, hợp đồng", "tieumuc": "3706", "tentieumuc": "Phụ thu về dầu, khí "},
+    {"muc": "3750", "tenmuc": "Thu về dầu thô theo hiệp định, hợp đồng", "tieumuc": "3751", "tentieumuc": "Thuế tài nguyên "},
+    {"muc": "3750", "tenmuc": "Thu về dầu thô theo hiệp định, hợp đồng", "tieumuc": "3752", "tentieumuc": "Thuế thu nhập doanh nghiệp về dầu thô "},
+    {"muc": "3750", "tenmuc": "Thu về dầu thô theo hiệp định, hợp đồng", "tieumuc": "3753", "tentieumuc": "Lợi nhuận sau thuế được chia của Chính phủ Việt Nam "},
+    {"muc": "3750", "tenmuc": "Thu về dầu thô theo hiệp định, hợp đồng", "tieumuc": "3754", "tentieumuc": "Dầu lãi được chia của Chính phủ Việt Nam "},
+    {"muc": "3750", "tenmuc": "Thu về dầu thô theo hiệp định, hợp đồng", "tieumuc": "3755", "tentieumuc": "Thuế đặc biệt "},
+    {"muc": "3750", "tenmuc": "Thu về dầu thô theo hiệp định, hợp đồng", "tieumuc": "3799", "tentieumuc": "Thu về dầu thô khác "},
+
+    {"muc": "3800", "tenmuc": "Thu tiền khí thiên nhiên của C.phủ theo hiệp định, KT dầu khí", "tieumuc": "3801", "tentieumuc": "Thuế tài nguyên "},
+    {"muc": "3800", "tenmuc": "Thu tiền khí thiên nhiên của C.phủ theo hiệp định, KT dầu khí", "tieumuc": "3802", "tentieumuc": "Thuế thu nhập doanh nghiệp "},
+    {"muc": "3800", "tenmuc": "Thu tiền khí thiên nhiên của C.phủ theo hiệp định, KT dầu khí", "tieumuc": "3803", "tentieumuc": "Khi lãi được chia của Chính phủ Việt Nam "},
+    {"muc": "3800", "tenmuc": "Thu tiền khí thiên nhiên của C.phủ theo hiệp định, KT dầu khí", "tieumuc": "3849", "tentieumuc": "Thu về khí thiên nhiên khác "},
+
+    {"muc": "3850", "tenmuc": "Thu tiền cho thuê tài sản nhà nước", "tieumuc": "3851", "tentieumuc": "Tiền thuê nhà thuộc SHNN "},
+    {"muc": "3850", "tenmuc": "Thu tiền cho thuê tài sản nhà nước", "tieumuc": "3852", "tentieumuc": "Thu tiền cho thuê quầy bán hàng "},
+    {"muc": "3850", "tenmuc": "Thu tiền cho thuê tài sản nhà nước", "tieumuc": "3853", "tentieumuc": "Tiền thuê cơ sở hạ tầng đường sắt "},
+    {"muc": "3850", "tenmuc": "Thu tiền cho thuê tài sản nhà nước", "tieumuc": "3854", "tentieumuc": "Tiền cho thuê và tiền chậm nộp tiền thuê cơ sở hạ tầng bến cảng, cầu cảng "},
+    {"muc": "3850", "tenmuc": "Thu tiền cho thuê tài sản nhà nước", "tieumuc": "3899", "tentieumuc": "Khác "},
+
+    {"muc": "3900", "tenmuc": "Thu khác từ quỹ đất", "tieumuc": "3901", "tentieumuc": "Thu hoa lợi công sản từ quỹ đất công ích "},
+    {"muc": "3900", "tenmuc": "Thu khác từ quỹ đất", "tieumuc": "3902", "tentieumuc": "Thu hoa lợi công sản từ quỹ đất công "},
+    {"muc": "3900", "tenmuc": "Thu khác từ quỹ đất", "tieumuc": "3903", "tentieumuc": "Thu hỗ trợ khi nhà nước thu hồi đất theo chế độ quy định "},
+    {"muc": "3900", "tenmuc": "Thu khác từ quỹ đất", "tieumuc": "3949", "tentieumuc": "Thu khác "},
+
+    {"muc": "3950", "tenmuc": "Thu về condensate theo hiệp định, hợp đồng", "tieumuc": "3951", "tentieumuc": "Thuế tài nguyên "},
+    {"muc": "3950", "tenmuc": "Thu về condensate theo hiệp định, hợp đồng", "tieumuc": "3952", "tentieumuc": "Thuế thu nhập doanh nghiệp về condensate "},
+    {"muc": "3950", "tenmuc": "Thu về condensate theo hiệp định, hợp đồng", "tieumuc": "3953", "tentieumuc": "Lãi được chia của Chính phủ Việt Nam "},
+    {"muc": "3950", "tenmuc": "Thu về condensate theo hiệp định, hợp đồng", "tieumuc": "3999", "tentieumuc": "Thu về condensate khác "},
+
+    {"muc": "4050", "tenmuc": "Lãi thu từ các khoản cho vay đầu tư của C.Phủ ở trong nước", "tieumuc": "4051", "tentieumuc": "Lãi cho vay bằng nguồn vốn trong nước "},
+    {"muc": "4050", "tenmuc": "Lãi thu từ các khoản cho vay đầu tư của C.Phủ ở trong nước", "tieumuc": "4052", "tentieumuc": "Lãi cho vay bằng nguồn vốn ngoài nước "},
+    {"muc": "4050", "tenmuc": "Lãi thu từ các khoản cho vay đầu tư của C.Phủ ở trong nước", "tieumuc": "4053", "tentieumuc": "Chênh lệch thu, chi của Ngân hàng Nhà nước "},
+    {"muc": "4050", "tenmuc": "Lãi thu từ các khoản cho vay đầu tư của C.Phủ ở trong nước", "tieumuc": "4054", "tentieumuc": "Thu nhập từ vốn góp của Nhà nước "},
+    {"muc": "4050", "tenmuc": "Lãi thu từ các khoản cho vay đầu tư của C.Phủ ở trong nước", "tieumuc": "4099", "tentieumuc": "Khác "},
+
+    {"muc": "4100", "tenmuc": "Lãi thu từ các khoản cho vay và góp vốn của Nhà nước ở NN", "tieumuc": "4101", "tentieumuc": "Lãi thu được từ các khoản cho các Chính phủ nước ngoài vay "},
+    {"muc": "4100", "tenmuc": "Lãi thu từ các khoản cho vay và góp vốn của Nhà nước ở NN", "tieumuc": "4102", "tentieumuc": "Lãi thu được từ các khoản cho các tổ chức quốc tế vay "},
+    {"muc": "4100", "tenmuc": "Lãi thu từ các khoản cho vay và góp vốn của Nhà nước ở NN", "tieumuc": "4103", "tentieumuc": "Lãi thu được từ các khoản cho các tổ chức tài chính và phi tài chính vay "},
+    {"muc": "4100", "tenmuc": "Lãi thu từ các khoản cho vay và góp vốn của Nhà nước ở NN", "tieumuc": "4104", "tentieumuc": "Lãi thu từ các khoản tham gia góp vốn của Nhà nước "},
+    {"muc": "4100", "tenmuc": "Lãi thu từ các khoản cho vay và góp vốn của Nhà nước ở NN", "tieumuc": "4149", "tentieumuc": "Khác "},
+
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4251", "tentieumuc": "Phạt vi phạm hành chính theo quyết định của tòa án "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4252", "tentieumuc": "Trong đó: Phạt vi phạm an toàn giao thông "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4254", "tentieumuc": "Phạt VPHC trong LVT do ngành Thuế TH, ko gồm VPHC đv LTTNCN "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4255", "tentieumuc": "Phạt về vi phạm chế độ kế toán - thống kê "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4256", "tentieumuc": "Phạt vi phạm tệ nạn xã hội "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4257", "tentieumuc": "Phạt vi phạm bảo vệ nguồn lợi thủy sản "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4258", "tentieumuc": "Phạt vi phạm về trồng và bảo vệ rừng "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4261", "tentieumuc": "Phạt vi phạm hành chính về bảo vệ môi trường "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4262", "tentieumuc": "Phạt vi phạm hành chính trong lĩnh vực y tế, văn hóa "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4263", "tentieumuc": "Phạt vi phạm hành chính về trật tự, an ninh, quốc phòng "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4264", "tentieumuc": "Phạt kinh doanh trái pháp luật do ngành thuế thực hiện "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4266", "tentieumuc": "Phạt kinh doanh trái pháp luật do ngành thuế thực hiện "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4267", "tentieumuc": "Phạt vi phạm trật tự đô thị "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4268", "tentieumuc": "Phạt vi phạm hành chính đối với Luật Thuế thu nhập cá nhân "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4271", "tentieumuc": "Phạt tiền do phạm tội theo quyết định của tòa án "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4272", "tentieumuc": "Tiền chậm nộp phạt vi phạm hành chính do cơ quan thuế quản lý "},
+    {"muc": "4250", "tenmuc": "Thu tiền phạt", "tieumuc": "4299", "tentieumuc": "Phạt vi phạm khác "},
+
+    {"muc": "4300", "tenmuc": "Thu tịch thu", "tieumuc": "4301", "tentieumuc": "Tịch thu từ công tác chống lậu do ngành thuế thực hiện "},
+    {"muc": "4300", "tenmuc": "Thu tịch thu", "tieumuc": "4302", "tentieumuc": "Tịch thu khác do ngành thuế thực hiện "},
+    {"muc": "4300", "tenmuc": "Thu tịch thu", "tieumuc": "4305", "tentieumuc": "Tịch thu từ công tác chống lậu của cơ quan quản lý thị trường thực hiện "},
+    {"muc": "4300", "tenmuc": "Thu tịch thu", "tieumuc": "4306", "tentieumuc": "Tịch thu do vi phạm hành chính theo quyết định của tòa án, cơ quan thi hành án "},
+    {"muc": "4300", "tenmuc": "Thu tịch thu", "tieumuc": "4307", "tentieumuc": "Tịch thu từ công tác chống lậu do các ngành khác thực hiện "},
+    {"muc": "4300", "tenmuc": "Thu tịch thu", "tieumuc": "4308", "tentieumuc": "Tịch thu từ công tác chống lậu do ngành kiểm lâm thực hiện "},
+    {"muc": "4300", "tenmuc": "Thu tịch thu", "tieumuc": "4311", "tentieumuc": "Tịch thu do phạm tội hoặc do liên quan tội phạm theo quyết định của tòa án, cơ quan thi hành án "},
+    {"muc": "4300", "tenmuc": "Thu tịch thu", "tieumuc": "4349", "tentieumuc": "Tịch thu khác "},
+
+    {"muc": "4900", "tenmuc": "Các khoản thu khác", "tieumuc": "4901", "tentieumuc": "Thu chênh lệch tỷ giá ngoại tệ của NS "},
+    {"muc": "4900", "tenmuc": "Các khoản thu khác", "tieumuc": "4902", "tentieumuc": "Thu hồi các khoản chi năm trước "},
+    {"muc": "4900", "tenmuc": "Các khoản thu khác", "tieumuc": "4904", "tentieumuc": "Các khoản thu khác của ngành Thuế "},
+    {"muc": "4900", "tenmuc": "Các khoản thu khác", "tieumuc": "4906", "tentieumuc": "Tiền lãi thu từ các khoản vay nợ, viện trợ của các dự án "},
+    {"muc": "4900", "tenmuc": "Các khoản thu khác", "tieumuc": "4907", "tentieumuc": "Thu chênh lệch giá trái phiếu "},
+    {"muc": "4900", "tenmuc": "Các khoản thu khác", "tieumuc": "4908", "tentieumuc": "Thu điều tiết từ sàn phẩm lọc hóa dầu "},
+    {"muc": "4900", "tenmuc": "Các khoản thu khác", "tieumuc": "4911", "tentieumuc": "Tiền chậm nộp do ngành Thuế quản lý "},
+    {"muc": "4900", "tenmuc": "Các khoản thu khác", "tieumuc": "4913", "tentieumuc": "Thu từ các quỹ của doanh nghiệp xổ số kiến thiết theo quy định "},
+    {"muc": "4900", "tenmuc": "Các khoản thu khác", "tieumuc": "4949", "tentieumuc": "Các khoản thu khác "}
 
 ]
 
@@ -549,6 +1084,46 @@ function good_str(str) {
     //good_str("a;b") => a ; b
     //good_str("a.  b") => a .  b
     return (((((str.replace(/\s{2,}/g," ")).replace(/\./g, " . ")).replace(/,/g, " , ")).replace(/\;/g, " ; ")).replace(/\?/g, " ? ")).replace(/\!/g, " ! ")
+}
+function search_tmuc(str, obj){
+    var tieumuc_len = obj.length
+    var str_done = " "+(((((((str.replace("tiểu mục"," ")).replace("là gì", " ")).replace("là cái gì", " ")).replace("là bao nhiêu"," ")).replace("gtgt", "giá trị gia tăng")).replace("tndn", "thu nhập doanh nghiệp")).replace("tncn", "thu nhập cá nhân")).trim()+" "
+    var kq = []
+    var flag = 0
+    
+    for (var i = 0; i < tieumuc_len; i++){
+        if (str_done.indexOf(obj[i]["tieumuc"]) != -1) {
+            kq.push(i)
+            flag = 1
+            break           
+        }
+    }
+    if (flag === 0) {
+        for (var i = 0; i < tieumuc_len; i++){
+            if (str_done.indexOf(obj[i]["muc"]) != -1) {
+                kq.push(i)          
+                flag = 2
+            }
+        }
+    }
+    if (flag === 0) {
+        for (var i = 0; i < tieumuc_len; i++){
+            if ((" "+(obj[i]["tenmuc"]).toLowerCase()+" ").indexOf(str_done) != -1) {
+                kq.push(i)
+                flag = 3           
+            }
+        }
+    }
+    if (flag === 0) {
+        for (var i = 0; i < tieumuc_len; i++){
+            if ((" "+(obj[i]["tentieumuc"]).toLowerCase()+" ").indexOf(str_done) != -1) {
+                kq.push(i)          
+                flag = 4
+            }
+        }
+    }
+
+    return kq
 }
 /*
 //Rất tiếc là làm thành hàm riêng lại ko chạy
@@ -663,9 +1238,9 @@ app.post('/webhook/', function (req, res) {
             } else {
                 var array_item = a_item >= 0 ? a_catalogue[a_item]["answer"] : a[normal_item]["answer"]
                 
-                if (array_item[0] == "function:help"){
+                if (array_item[0] === "function:help"){
                     sendTextMessage(sender, help(a_catalogue, 5))
-                } else if (array_item[0] == "function:htkk_version"){
+                } else if (array_item[0] === "function:htkk_version"){
                     request(url_htkk, function(err, response, body){  
                         if (!err && response.statusCode == 200) {
                             var $ = cheerio.load(body)
@@ -675,6 +1250,24 @@ app.post('/webhook/', function (req, res) {
                         }
                         else sendTextMessage(sender, 'Không xem được phiên bản của HTKK do kết nối tới máy chủ lỗi')
                     })
+                } else if (array_item[0] === "function:search_tmuc") {
+
+                    var search_tm = search_tmuc(text, a_tieumuc)
+                    var search_tm_len = search_tm.length
+                    if (search_tm_len === 0){
+                        sendTextMessage(sender, "Tôi không tìm thấy tiểu mục này. Bạn xem danh sách đầy đủ tại đây http://adf.ly/1biHZ7")
+                    } else {
+                        if (search_tm_len > 30) {
+                            sendTextMessage(sender, "Có quá nhiều kết quả nên tôi chỉ liệt kê 1 phần. Bạn hãy giới hạn lại từ khóa tìm kiếm")
+                            search_tm_len = 29
+                        }
+                        for (var i = 0; i < search_tm_len; i++){
+                            sendTextMessage(sender, a_tieumuc[search_tm[i]]["tieumuc"]+" - "+a_tieumuc[search_tm[i]]["tentieumuc"])
+                        }
+                        sendTextMessage(sender, "Bạn có thể xem danh sách đầy đủ tại đây http://adf.ly/1biHZ7")
+                    }
+
+
                 } else {
                     for (var i=0; i < array_item.length; i++){
                             sendTextMessage(sender, array_item[i])
