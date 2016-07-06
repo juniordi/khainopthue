@@ -329,6 +329,31 @@ var a_catalogue = [
         "answer": ["function:search_tmuc"]
     },
 
+    {
+        "description": "tỷ lệ tính tiền chậm nộp",
+        "catalogue": [[" chậm nộp ", " nộp chậm "]],
+        "keyword": [" tỷ lệ "],
+        "answer": ["Tỷ lệ tính tiền chậm nộp trước ngày 01/01/2015 là 0,05%/ngày với các khoản nợ dưới 90 ngày, từ 90 ngày sẽ tính 0,07%/ngày. Từ ngày 01/01/2015 tính phạt 0,05%/ngày. Từ ngày 01/7/2016 là 0,03%/ngày"]
+    },
+    {
+        "description": "cách tính phạt chậm nộp",
+        "catalogue": [[" chậm nộp ", " nộp chậm "]],
+        "keyword": [[" cách tính ", " như nào ", " thế nào ", " kiểu gì ", " hướng dẫn "]],
+        "answer": ["Cách tính phạt chậm nộp: Số tiền phạt = Số tiền nợ x tỷ lệ x số ngày chậm nộp", "Bạn có thể nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016. Tôi sẽ tính số tiền phạt chậm nộp cho bạn"]
+    },
+    {
+        "description": "cách nhập để tính phạt",
+        "catalogue": [[" chậm nộp ", " nộp chậm "]],
+        "keyword": [" tính phạt "],
+        "answer": ["Ví dụ bạn nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016. Tôi sẽ tính số tiền phạt chậm nộp cho bạn"]
+    },
+    {
+        "description": "tính phạt chậm nộp",
+        "catalogue": [[" chậm nộp ", " nộp chậm "]],
+        "keyword": [" tính phạt ", " từ ", " đến "],
+        "answer": ["function:tinh_phat"]
+    },
+
 
 
     {
@@ -340,13 +365,13 @@ var a_catalogue = [
     {
         "description": "Khai thuế qua mạng như thế nào",
         "catalogue": [[" khai thuế ", " kê khai ", " nộp tờ khai ", " nộp tk ", " gửi tk ", " gửi tờ khai "]],
-        "keyword": [[" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào "]],
+        "keyword": [[" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào ", " như nào "]],
         "answer": ["Để khai thuế qua mạng bạn phải:\n- Cài đặt các phần mềm cần thiết.\n- Có chứng thư số\n- Đăng ký tài khoản trên trang http://kekhaithue.gdt.gov.vn \n- Bạn có thể xem cách nộp tại đây https://youtu.be/IMeg6n6reI0"]
     },
     {
         "description": "Đăng ký khai thuế qua mạng như thế nào",
         "catalogue": [[" khai thuế ", " kê khai ", " nộp tờ khai ", " nộp tk ", " gửi tk ", " gửi tờ khai ", " kekhaithue ", " nhantokhai "]],
-        "keyword": [" đăng ký ", [" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào "]],
+        "keyword": [" đăng ký ", [" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào ", " như nào "]],
         "answer": ["Bạn xem cách đăng ký khai thuế qua mạng tại đây https://youtu.be/LWJKaoqtAYI"]
     },
     {
@@ -388,7 +413,7 @@ var a_catalogue = [
     {
         "description": "cách gửi bảng kê, thuyết minh BCTC",
         "catalogue": [[" gửi bảng kê ", " gửi bk ", " nộp bảng kê ", " nộp bk ", " gửi thuyết minh ", " nộp thuyết minh "]],
-        "keyword": [[" cách ", " thế nào ", " hướng dẫn ", " kiểu gì "]],
+        "keyword": [[" cách ", " thế nào ", " hướng dẫn ", " kiểu gì ", " như nào "]],
         "answer": ["Các bảng kê hoặc thuyết minh BCTC bạn gửi file định dạng word hoặc excel. Cách làm bạn xem tại đây http://lehoangdieu.blogspot.com/2016/02/nop-thuyet-minh-bctc-qua-mang.html"]
     },
     {
@@ -430,14 +455,32 @@ var a_catalogue = [
     {
         "description": "Đăng ký tờ khai phải nộp trên trang kekhaithue",
         "catalogue": [" kekhaithue ", " nhantokhai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk ", " kê khai "],
-        "keyword": [" đăng ký ", [" đăng ký tờ khai ", " đăng ký tk ", " đăng ký thêm tờ khai ", " đăng ký thêm tk "], [" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào "]],
+        "keyword": [" đăng ký ", [" đăng ký tờ khai ", " đăng ký tk ", " đăng ký thêm tờ khai ", " đăng ký thêm tk "], [" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào ", " như nào "]],
         "answer": ["Bạn vào ĐĂNG KÝ TỜ KHAI để đăng ký, bạn tham khảo cách làm ở đây https://youtu.be/9XZ0nbBuPXM"]
     },
     {
         "description": "Ngừng tờ khai phải nộp trên trang kekhaithue",
         "catalogue": [" kekhaithue ", " nhantokhai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk ", " kê khai "],
-        "keyword": [" đăng ký ", [" ngừng tk ", " ngừng tờ khai ", " bỏ tk ", " bỏ tk ", " hủy tk ", " hủy tờ khai "],[" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào "]],
+        "keyword": [" đăng ký ", [" ngừng tk ", " ngừng tờ khai ", " bỏ tk ", " bỏ tk ", " hủy tk ", " hủy tờ khai "],[" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào ", " như nào "]],
         "answer": ["Bạn vào ĐĂNG KÝ TỜ KHAI để đăng ký ngừng TK phải nộp, bạn tham khảo cách làm ở đây https://youtu.be/9XZ0nbBuPXM"]
+    },
+    {
+        "description": "Lập tờ khai, đăng ký, gửi và tra cứu kết quả cấp mã người phụ thuộc",
+        "catalogue": [[" cấp mã người phụ thuộc ", " cấp mã npt ", " cấp mã số người phụ thuộc ", " cấp mã số npt ", " cấp mã số thuế người phụ thuộc ", " cấp mst npt ", " cấp người phụ thuộc ", " cấp npt "]],
+        "keyword": [[" tờ khai ", " đăng ký ", " gửi ", " tra cứu "]],
+        "answer": ["Bạn xem hướng dẫn lập tờ khai, đăng ký, gửi và tra cứu kết quả cấp mã người phụ thuộc qua mạng tại đây http://lehoangdieu.blogspot.com/2016/02/lap-to-khai-ang-ky-gui-va-tra-cuu-ket.html"]
+    },
+    {
+        "description": "Lỗi không thể ký được tệp tờ khai",
+        "catalogue": [[" kekhaithue ", " nhantokhai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk "]],
+        "keyword": [" lỗi ", [" không thể ký được tệp tờ khai ", " không thể ký được tệp tk ", " không ký được tệp tờ khai ", " không ký được tệp tk ", " không thể ký được tờ khai ", " không thể ký được tk ", " không ký được tờ khai ", " không ký được tk "]],
+        "answer": ["Bạn xem cách khắc phục lỗi không thể ký được tệp tờ khai tại đây http://lehoangdieu.blogspot.com/2016/02/khac-phuc-loi-khong-ky-uoc-tep-to-khai.html"]
+    },
+    {
+        "description": "thông báo Chức năng chỉ hoạt động với tài khoản đăng ký khai và nộp thuế qua hệ thống Khai thuế qua mạng của Tổng cục Thuế",
+        "catalogue": [[" kekhaithue ", " nhantokhai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk "]],
+        "keyword": [" lỗi ", " chức năng chỉ hoạt động với tài khoản "],
+        "answer": ["Bạn xem cách khắc phục thông báo Chức năng chỉ hoạt động với tài khoản đăng ký khai và nộp thuế qua hệ thống Khai thuế qua mạng của TCT tại đây http://lehoangdieu.blogspot.com/2016/02/thong-bao-chuc-nang-chi-hoat-ong-voi.html"]
     },
 
 
@@ -480,7 +523,7 @@ var a_catalogue = [
     {
         "description": "Nộp thuế như thế nào",
         "catalogue": [[" nộp thuế ", " nộp tiền "]],
-        "keyword": [[" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào "]],
+        "keyword": [[" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào ", " như nào "]],
         "answer": ["Để nộp thuế điện tử bạn phải:\n- Cài đặt các phần mềm cần thiết.\n- Có chứng thư số\n- Đăng ký tài khoản trên trang https://nopthue.gdt.gov.vn \n- Xem các video hướng dẫn nộp chi tiết tại đây http://bit.ly/videokhainopthue"]
     },
     {
@@ -492,13 +535,13 @@ var a_catalogue = [
     {
         "description": "Đăng ký nộp thuế điện tử như thế nào",
         "catalogue": [" nộp thuế "],
-        "keyword": [" đăng ký ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "keyword": [" đăng ký ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì ", " như nào "]],
         "answer": ["Bạn xem cách đăng ký nộp thuế tại đây https://youtu.be/kgsTeNWyjQs"]
     },
     {
         "description": "Đăng ký Nộp thuế điện tử với thông tin sai thì phải làm như thế nào",
         "catalogue": [[" nộp thuế ", " nộp tiền "]],
-        "keyword": [" đăng ký ", [" sai thông tin ", " nhầm thông tin ", " thông tin sai ", " thông tin nhầm "], [" làm thế nào ", " làm như thế nào "]],
+        "keyword": [" đăng ký ", [" sai thông tin ", " nhầm thông tin ", " thông tin sai ", " thông tin nhầm "], [" làm thế nào ", " làm như thế nào ", " như nào "]],
         "answer": [" - Nếu bạn đăng ký nhầm ngân hàng: liên lạc với NH để NH từ chối đăng ký", "- Nếu đăng ký nhầm thông tin như email, số điện thoại:\n+Nếu chưa có tài khoản: Bạn liên lạc với NH để sửa lại thông tin.\n+Nếu đã có tài khoản: Bạn vào TÀI KHOẢN > THAY ĐỔI THÔGN TIN để sửa"]
     },
     {
@@ -534,39 +577,51 @@ var a_catalogue = [
     {
         "description": "Cách đăng ký nộp thuế",
         "catalogue": [[" nộp thuế ", " nopthue "]],
-        "keyword": [" đăng ký ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "keyword": [" đăng ký ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì ", " như nào "]],
         "answer": ["Bạn xem cách đăng ký nộp thuế qua mạng tại đây https://youtu.be/kgsTeNWyjQs"]
     },
     {
         "description": "Thay đổi thông tin nộp thuế",
         "catalogue": [[" nộp thuế ", " nopthue "]],
-        "keyword": [[" đổi thông tin ", " sửa thông tin ", " thay thông tin "], [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "keyword": [[" đổi thông tin ", " sửa thông tin ", " thay thông tin "], [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì ", " như nào "]],
         "answer": ["Bạn xem cách thay đổi thông tin nộp thuế tại đây https://youtu.be/b8Pjbq3G1vQ"]
+    },
+    {
+        "description": "Lỗi có giấy nộp tiền giống với giấy nộp tiền hiện tại trong 10 ngày gần đây",
+        "catalogue": [[" nộp thuế ", " nopthue "]],
+        "keyword": [" lỗi ", [" có giấy nộp tiền giống với giấy nộp tiền hiện tại ", " bạn cần tách số tiền "]],
+        "answer": ["Bạn xem cách sửa lỗi có giấy nộp tiền giống với giấy nộp tiền hiện tại trong 10 ngày gần đây tại http://lehoangdieu.blogspot.com/2016/02/canh-bao-co-giay-nop-tien-giong-voi.html"]
+    },
+    {
+        "description": "lỗi giấy nộp tiền vượt quá số ký tự của ngân hàng. Đề nghị rút ngắn nội dung ghi chú hoặc tách thành hai giấy nộp tiền",
+        "catalogue": [[" nộp thuế ", " nopthue "]],
+        "keyword": [" lỗi ", [" giấy nộp tiền vượt quá số ký tự của ngân hàng ", " gnt vượt quá số ký tự của ngân hàng ", " giấy nộp tiền vượt quá số ký tự của nh ", " gnt vượt quá số ký tự của nh ", " giấy nộp tiền vượt quá ký tự của ngân hàng ", " gnt vượt quá ký tự của ngân hàng ", " giấy nộp tiền vượt quá ký tự của nh ", " gnt vượt quá ký tự của nh "]],
+        "answer": ["Bạn xem cách sửa lỗi lỗi giấy nộp tiền vượt quá số ký tự của ngân hàng tại http://lehoangdieu.blogspot.com/2016/02/khac-phuc-loi-giay-nop-tien-vuot-qua-so.html"]
     },
 
 
     {
         "description": "Tra cứu giấy nộp tiền",
         "catalogue": [[" giấy nộp tiền ", " chứng từ "]],
-        "keyword": [[" tra cứu ", " tìm "], [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "keyword": [[" tra cứu ", " tìm "], [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì ", " như nào "]],
         "answer": ["Bạn vào TRA CỨU > TRA CỨU GIẤY NỘP TIỀN để tra cứu giấy nộp tiền đã gửi thành công hay chưa. Bạn xem chi tiết tại đây https://youtu.be/01lb6LcPFjs"]
     },
     {
         "description": "Trình ký giấy nộp tiền",
         "catalogue": [[" giấy nộp tiền ", " chứng từ "]],
-        "keyword": [" trình ký ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "keyword": [" trình ký ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì ", " như nào "]],
         "answer": ["Bạn xem cách trình ký giấy nộp tiền tại đây https://youtu.be/hK3UR0vv76w"]
     },
     {
         "description": "Lập giấy nộp tiền nộp thay",
         "catalogue": [[" giấy nộp tiền ", " chứng từ "]],
-        "keyword": [" nộp thay ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "keyword": [" nộp thay ", [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì ", " như nào "]],
         "answer": ["Chức năng lập giấy nộp tiền nộp thay dùng để nộp thay tiền thuế cho DN khác. Bạn xem cách lập giấy nộp tiền nộp thay tại đây https://youtu.be/l46eaayXsZM"]
     },
     {
         "description": "Lập giấy nộp tiền",
         "catalogue": [[" giấy nộp tiền ", " chứng từ "]],
-        "keyword": [[" tạo ", " lập ", " khai ", " làm "], [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì "]],
+        "keyword": [[" tạo ", " lập ", " khai ", " làm "], [" thế nào ", " cách ", " hướng dẫn ", " kiểu gì ", " như nào "]],
         "answer": ["Bạn xem cách lập giấy nộp tiền tại đây https://youtu.be/ngmUka21pZI"]
     },
 
@@ -1087,7 +1142,7 @@ function good_str(str) {
 }
 function search_tmuc(str, obj){
     var tieumuc_len = obj.length
-    var str_done = " "+(((((((str.replace("tiểu mục"," ")).replace("là gì", " ")).replace("là cái gì", " ")).replace("là bao nhiêu"," ")).replace("gtgt", "giá trị gia tăng")).replace("tndn", "thu nhập doanh nghiệp")).replace("tncn", "thu nhập cá nhân")).trim()+" "
+    var str_done = " "+((((((((str.replace("tiểu mục"," ")).replace("là gì", " ")).replace("là cái gì", " ")).replace("là bao nhiêu"," ")).replace("gtgt", "giá trị gia tăng")).replace("tndn", "thu nhập doanh nghiệp")).replace("tncn", "thu nhập cá nhân")).replace("tra cứu", " ")).trim()+" "
     var kq = []
     var flag = 0
     
@@ -1124,6 +1179,90 @@ function search_tmuc(str, obj){
     }
 
     return kq
+}
+function tinh_phat(str){
+    //str = tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 31/12/2016
+    var day_field
+    var month_field
+    var year_field
+
+    var tu_ngay
+    var tu_ngay_tmp
+    var den_ngay
+    var den_ngay_tmp
+    var so_tien
+
+    var kq = []
+    var patt1 = /(từ ngày|từ) \d{1,2}\/\d{1,2}\/\d{4}/
+    var patt1_1 = /(từ ngày|từ) \d{1,2}-\d{1,2}-\d{4}/
+    if (patt1.test(str)){
+        //kq.push(str.match(patt1)[0])
+        tu_ngay_tmp = str.match(patt1)[0].replace(/(từ ngày|từ) /, "")
+    } else if (patt1_1.test(str)){
+        //kq.push(str.match(patt1_1)[0])
+        tu_ngay_tmp = str.match(patt1_1)[0].replace(/(từ ngày|từ) /, "")
+        
+    } else return ["Bạn chưa có ngày bắt đầu tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
+    
+    day_field = tu_ngay_tmp.split("/")[0]
+    month_field = tu_ngay_tmp.split("/")[1]
+    year_field = tu_ngay_tmp.split("/")[2]
+    tu_ngay = new Date(year_field, Number(month_field)-1, day_field)
+    if (tu_ngay.getMonth()+1 != Number(month_field) || tu_ngay.getDate() != day_field || tu_ngay.getFullYear() != year_field) return ["Bạn xác định sai ngày bắt đầu tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
+    //kq.push(tu_ngay)
+    //tu_ngay co gia tri hop le
+    
+    var patt2 = /(đến ngày|đến) \d{1,2}\/\d{1,2}\/\d{4}/
+    var patt2_1 = /(đến ngày|đến) \d{1,2}-\d{1,2}-\d{4}/
+    if (patt2.test(str)){
+        //kq.push(str.match(patt2)[0])
+        den_ngay_tmp = str.match(patt2)[0].replace(/(đến ngày|đến) /, "")
+    } else if (patt2_1.test(str)){
+        //kq.push(str.match(patt2_1)[0])
+        den_ngay_tmp = str.match(patt2_1)[0].replace(/(đến ngày|đến) /, "")
+        
+    } else return ["Bạn chưa có ngày kết thúc tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
+    
+    day_field = den_ngay_tmp.split("/")[0]
+    month_field = den_ngay_tmp.split("/")[1]
+    year_field = den_ngay_tmp.split("/")[2]
+    den_ngay = new Date(year_field, Number(month_field)-1, day_field)
+    if (den_ngay.getMonth()+1 != Number(month_field) || den_ngay.getDate()!=day_field || den_ngay.getFullYear()!=year_field) return ["Bạn xác định sai ngày kết thúc tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
+    //kq.push(den_ngay)
+    //den_ngay co gia tri hop le
+
+    var str_tmp = (str.replace(kq[0]," ")).replace(kq[1]," ")
+    var patt = /(\d+(\.|,)*)+ /
+    if (patt.test(str_tmp)){
+        var patt_daucham = /\./
+        var patt_dauphay = /,/
+        if (patt_daucham.test(str_tmp) === true && patt_dauphay.test(str_tmp) === true) return ["Bạn nhập sai số tiền tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
+        //kq.push(str_tmp.match(patt)[0].replace(/\.|,/g,""))
+        //kq.push(str_tmp.match(patt)[0])
+        so_tien = str_tmp.match(patt)[0].replace(/\.|,/g,"")
+    }
+    //so_tien co gia tri hop le
+
+    var minutes = 1000 * 60
+    var hours = minutes * 60
+    var days = hours * 24
+
+    var tu_ngay_parse = Date.parse(tu_ngay)
+    var den_ngay_parse = Date.parse(den_ngay)
+
+    var so_ngay_tinh_phat = Math.round(den_ngay_parse/days) - Math.round(tu_ngay_parse/days)
+
+    //var ngay_31122014 = new Date("2014-12-31") //den ngay 31/12/2014: duoi 90 ngay tinh phat 0,05%; tren 90 ngay tinh phat 0,07%
+    //var ngay_01012015 = new Date("2015-01-01") //tu ngay 01/01/2015: tinh phat 0,05%
+    //var ngay_01072016 = new Date("2016-07-01") //tu ngay 01/07/2016: tinh phat 0,03%
+
+    //var ty_le_005 = 0.0005
+    //var ty_le_007 = 0.0007
+    var ty_le_003 = 0.0003
+
+    var so_tien_phat = Number(so_tien) * Number(ty_le_003) * so_ngay_tinh_phat
+
+    return ["Tổng tiền phạt: "+so_tien_phat+"\nChi tiết: "+so_tien.trim()+"x0,03%x"+so_ngay_tinh_phat+" ngày = "+so_tien_phat+"\nHiện nay tôi chỉ tính theo tỷ lệ phạt chậm nộp 0,03%. Những trường hợp tính theo tỷ lệ khác tôi chưa xem xét", "Theo Luật số 106/2016/QH13 ngày 6/4/2016 của Quốc hội: Đối với các Khoản nợ tiền thuế phát sinh trước ngày 01/7/2016 mà NNT chưa nộp vào ngân sách, kể cả Khoản tiền nợ thuế được truy thu qua kết quả thanh tra, kiểm tra thì được chuyển sang áp dụng mức tính tiền chậm nộp 0,03% từ ngày 01/7/2016"]
 }
 /*
 //Rất tiếc là làm thành hàm riêng lại ko chạy
@@ -1268,6 +1407,11 @@ app.post('/webhook/', function (req, res) {
                     }
 
 
+                } else if (array_item[0] === "function:tinh_phat") {
+                    var result_tinh_phat = tinh_phat(text)
+                    for (var i = 0; i < result_tinh_phat.length; i++){
+                        sendTextMessage(sender, result_tinh_phat[i])
+                    }
                 } else {
                     for (var i=0; i < array_item.length; i++){
                             sendTextMessage(sender, array_item[i])
