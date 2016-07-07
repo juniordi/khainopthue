@@ -541,7 +541,7 @@ var a_catalogue = [
     {
         "description": "Đăng ký Nộp thuế điện tử với thông tin sai thì phải làm như thế nào",
         "catalogue": [[" nộp thuế ", " nộp tiền "]],
-        "keyword": [" đăng ký ", [" sai thông tin ", " nhầm thông tin ", " thông tin sai ", " thông tin nhầm "], [" làm thế nào ", " làm như thế nào ", " như nào "]],
+        "keyword": [" đăng ký ", [" sai ", " nhầm "], " thông tin ", [" làm thế nào ", " làm như thế nào ", " như nào "]],
         "answer": [" - Nếu bạn đăng ký nhầm ngân hàng: liên lạc với NH để NH từ chối đăng ký", "- Nếu đăng ký nhầm thông tin như email, số điện thoại:\n+Nếu chưa có tài khoản: Bạn liên lạc với NH để sửa lại thông tin.\n+Nếu đã có tài khoản: Bạn vào TÀI KHOẢN > THAY ĐỔI THÔGN TIN để sửa"]
     },
     {
@@ -597,6 +597,12 @@ var a_catalogue = [
         "catalogue": [[" nộp thuế ", " nopthue "]],
         "keyword": [" lỗi ", [" giấy nộp tiền vượt quá số ký tự của ngân hàng ", " gnt vượt quá số ký tự của ngân hàng ", " giấy nộp tiền vượt quá số ký tự của nh ", " gnt vượt quá số ký tự của nh ", " giấy nộp tiền vượt quá ký tự của ngân hàng ", " gnt vượt quá ký tự của ngân hàng ", " giấy nộp tiền vượt quá ký tự của nh ", " gnt vượt quá ký tự của nh "]],
         "answer": ["Bạn xem cách sửa lỗi lỗi giấy nộp tiền vượt quá số ký tự của ngân hàng tại http://lehoangdieu.blogspot.com/2016/02/khac-phuc-loi-giay-nop-tien-vuot-qua-so.html"]
+    },
+    {
+        "description": "Hỗ trợ về số tài khoản ngân hàng",
+        "catalogue": [[" tài khoản ngân hàng", " tài khoản nh ", " tk ngân hàng ", " tk nh"]],
+        "keyword": [[" tài khoản ngân hàng", " tài khoản nh ", " tk ngân hàng ", " tk nh"]],
+        "answer": ["Số tài khoản ngân hàng là số tài khoản tại ngân hàng của bạn. Để thay đổi, thêm mới tài khoản này bạn hãy liên lạc với ngân hàng. Nếu muốn đăng ký nhiều số tài khoản 1 lúc thì khi đăng ký bạn nhập mỗi tài khoản cách nhau bởi dấu chấm phẩy (;)"]
     },
 
 
@@ -1196,11 +1202,11 @@ function tinh_phat(str){
     var patt1 = /(từ ngày|từ) \d{1,2}\/\d{1,2}\/\d{4}/
     var patt1_1 = /(từ ngày|từ) \d{1,2}-\d{1,2}-\d{4}/
     if (patt1.test(str)){
-        //kq.push(str.match(patt1)[0])
+        kq.push(str.match(patt1)[0])
         tu_ngay_tmp = str.match(patt1)[0].replace(/(từ ngày|từ) /, "")
     } else if (patt1_1.test(str)){
-        //kq.push(str.match(patt1_1)[0])
-        tu_ngay_tmp = str.match(patt1_1)[0].replace(/(từ ngày|từ) /, "")
+        kq.push(str.match(patt1_1)[0])
+        tu_ngay_tmp = (str.match(patt1_1)[0].replace(/(từ ngày|từ) /, "")).replace(/-+/g, "/")
         
     } else return ["Bạn chưa có ngày bắt đầu tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
     
@@ -1209,17 +1215,16 @@ function tinh_phat(str){
     year_field = tu_ngay_tmp.split("/")[2]
     tu_ngay = new Date(year_field, Number(month_field)-1, day_field)
     if (tu_ngay.getMonth()+1 != Number(month_field) || tu_ngay.getDate() != day_field || tu_ngay.getFullYear() != year_field) return ["Bạn xác định sai ngày bắt đầu tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
-    //kq.push(tu_ngay)
     //tu_ngay co gia tri hop le
     
     var patt2 = /(đến ngày|đến) \d{1,2}\/\d{1,2}\/\d{4}/
     var patt2_1 = /(đến ngày|đến) \d{1,2}-\d{1,2}-\d{4}/
     if (patt2.test(str)){
-        //kq.push(str.match(patt2)[0])
+        kq.push(str.match(patt2)[0])
         den_ngay_tmp = str.match(patt2)[0].replace(/(đến ngày|đến) /, "")
     } else if (patt2_1.test(str)){
-        //kq.push(str.match(patt2_1)[0])
-        den_ngay_tmp = str.match(patt2_1)[0].replace(/(đến ngày|đến) /, "")
+        kq.push(str.match(patt2_1)[0])
+        den_ngay_tmp = (str.match(patt2_1)[0].replace(/(đến ngày|đến) /, "")).replace(/-+/g, "/")
         
     } else return ["Bạn chưa có ngày kết thúc tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
     
@@ -1228,19 +1233,17 @@ function tinh_phat(str){
     year_field = den_ngay_tmp.split("/")[2]
     den_ngay = new Date(year_field, Number(month_field)-1, day_field)
     if (den_ngay.getMonth()+1 != Number(month_field) || den_ngay.getDate()!=day_field || den_ngay.getFullYear()!=year_field) return ["Bạn xác định sai ngày kết thúc tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
-    //kq.push(den_ngay)
     //den_ngay co gia tri hop le
 
-    var str_tmp = (str.replace(kq[0]," ")).replace(kq[1]," ")
+    var str_tmp = (str.replace(kq[0]," ")).replace(kq[1]," ")  //remove: tu ngay dd/mm/yyyy & den ngay dd/mm/yyyy
     var patt = /(\d+(\.|,)*)+ /
     if (patt.test(str_tmp)){
         var patt_daucham = /\./
         var patt_dauphay = /,/
         if (patt_daucham.test(str_tmp) === true && patt_dauphay.test(str_tmp) === true) return ["Bạn nhập sai số tiền tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
-        //kq.push(str_tmp.match(patt)[0].replace(/\.|,/g,""))
-        //kq.push(str_tmp.match(patt)[0])
+        kq.push(str_tmp.match(patt)[0])
         so_tien = str_tmp.match(patt)[0].replace(/\.|,/g,"")
-    }
+    } else return ["Bạn phải nhập số tiền tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
     //so_tien co gia tri hop le
 
     var minutes = 1000 * 60
@@ -1252,18 +1255,13 @@ function tinh_phat(str){
 
     var so_ngay_tinh_phat = Math.round(den_ngay_parse/days) - Math.round(tu_ngay_parse/days)
 
-    //var ngay_31122014 = new Date("2014-12-31") //den ngay 31/12/2014: duoi 90 ngay tinh phat 0,05%; tren 90 ngay tinh phat 0,07%
-    //var ngay_01012015 = new Date("2015-01-01") //tu ngay 01/01/2015: tinh phat 0,05%
-    //var ngay_01072016 = new Date("2016-07-01") //tu ngay 01/07/2016: tinh phat 0,03%
-
-    //var ty_le_005 = 0.0005
-    //var ty_le_007 = 0.0007
     var ty_le_003 = 0.0003
 
-    var so_tien_phat = Number(so_tien) * Number(ty_le_003) * so_ngay_tinh_phat
+    var so_tien_phat = Math.round(Number(so_tien) * Number(ty_le_003) * so_ngay_tinh_phat)
 
     return ["Tổng tiền phạt: "+so_tien_phat+"\nChi tiết: "+so_tien.trim()+"x0,03%x"+so_ngay_tinh_phat+" ngày = "+so_tien_phat+"\nHiện nay tôi chỉ tính theo tỷ lệ phạt chậm nộp 0,03%. Những trường hợp tính theo tỷ lệ khác tôi chưa xem xét", "Theo Luật số 106/2016/QH13 ngày 6/4/2016 của Quốc hội: Đối với các Khoản nợ tiền thuế phát sinh trước ngày 01/7/2016 mà NNT chưa nộp vào ngân sách, kể cả Khoản tiền nợ thuế được truy thu qua kết quả thanh tra, kiểm tra thì được chuyển sang áp dụng mức tính tiền chậm nộp 0,03% từ ngày 01/7/2016"]
 }
+
 /*
 //Rất tiếc là làm thành hàm riêng lại ko chạy
 function htkk_version(){
@@ -1408,7 +1406,8 @@ app.post('/webhook/', function (req, res) {
 
 
                 } else if (array_item[0] === "function:tinh_phat") {
-                    var result_tinh_phat = tinh_phat(text)
+                    //var txt_question = ((event.message.text).toLowerCase()).replace(/\s{2,}/g," ")
+                    var result_tinh_phat = tinh_phat(((event.message.text).toLowerCase()).replace(/\s{2,}/g," "))
                     for (var i = 0; i < result_tinh_phat.length; i++){
                         sendTextMessage(sender, result_tinh_phat[i])
                     }
