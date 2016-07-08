@@ -91,7 +91,7 @@ var a = [
     
     {
         "description": "hỏi có được đổi tên file tk không",
-        "keyword": [" đổi tên ", [" file ", " tệp tờ khai ", " tệp tk "]],
+        "keyword": [[" đổi tên file ", " đổi tên tệp tờ khai ", " đổi tên tệp tk ", " đổi tên tờ khai ", " đổi tên tk "]],
         "answer": ["Bạn có thể đổi tên file tờ khai xml khi gửi qua trang kekhaithue.gdt.gov.vn", "Nếu gửi tờ khai qua trang tncnonline.com.vn thì bạn không được đổi tên file"]
     },
     {
@@ -119,6 +119,7 @@ var a = [
         "keyword": [" ký điện tử "],
         "answer": ["Bạn xem cách ký tờ khai tại đây https://youtu.be/IMeg6n6reI0, hoặc cách ký giấy nộp tiền tại đây https://youtu.be/ngmUka21pZI"]
     }
+
 
 ]
 //data catalogue
@@ -250,6 +251,12 @@ var a_catalogue = [
         "catalogue": [" java "],
         "keyword": [[" nâng cấp ", " update "]],
         "answer": ["Bạn xem khi nào phải nâng cấp và cách nâng cấp java ở đây https://youtu.be/sAp46t5dxFY"]
+    },
+    {
+        "description": "lỗi java",
+        "catalogue": [" java "],
+        "keyword": [[" lỗi ", " trục trặc "]],
+        "answer": ["Nếu java bị lỗi bạn sẽ: Không chọn được tệp tờ khai, không ký được tệp tờ khai, không ký được giấy nộp tiền và không đổi được mật khẩu. Bạn xem hướng dẫn cài và cấu hình java ở đây nhé http://lehoangdieu.blogspot.com/2016/02/thiet-lap-java-e-khai-nop-thue.html"]
     },
 
 
@@ -542,12 +549,12 @@ var a_catalogue = [
         "description": "Đăng ký Nộp thuế điện tử với thông tin sai thì phải làm như thế nào",
         "catalogue": [[" nộp thuế ", " nộp tiền "]],
         "keyword": [" đăng ký ", [" sai ", " nhầm "], " thông tin ", [" làm thế nào ", " làm như thế nào ", " như nào "]],
-        "answer": [" - Nếu bạn đăng ký nhầm ngân hàng: liên lạc với NH để NH từ chối đăng ký", "- Nếu đăng ký nhầm thông tin như email, số điện thoại:\n+Nếu chưa có tài khoản: Bạn liên lạc với NH để sửa lại thông tin.\n+Nếu đã có tài khoản: Bạn vào TÀI KHOẢN > THAY ĐỔI THÔGN TIN để sửa"]
+        "answer": [" - Nếu bạn đăng ký nhầm ngân hàng: liên lạc với NH để NH từ chối đăng ký", "- Nếu đăng ký nhầm thông tin như email, số điện thoại:\n+Nếu chưa có tài khoản: Bạn liên lạc với NH để sửa lại thông tin.\n+Nếu đã có tài khoản: Bạn vào TÀI KHOẢN > THAY ĐỔI THÔNG TIN để sửa"]
     },
     {
         "description": "Những NNT nào được tham gia Nộp thuế điện tử?",
-        "catalogue": [[" nộp thuế ", " nộp tiền "]],
-        "keyword": [" được ", " tham gia "],
+        "catalogue": [" nộp thuế "],
+        "keyword": [" tham gia ", " được "],
         "answer": ["NNT đảm bảo đầy đủ những điều kiện sau có thể tham gia nộp thuế điện tử: \n - Là tổ chức, doanh nghiệp được cấp mã số thuế và đang hoạt động \n - Có chứng thư số\n - Có kết nối Internet và địa chỉ thư điện tử\n- Có tài khoản tại một trong những Ngân hàng thương mại triển khai nộp thuế với TCT"]
     },
     {
@@ -603,6 +610,12 @@ var a_catalogue = [
         "catalogue": [[" tài khoản ngân hàng", " tài khoản nh ", " tk ngân hàng ", " tk nh"]],
         "keyword": [[" tài khoản ngân hàng", " tài khoản nh ", " tk ngân hàng ", " tk nh"]],
         "answer": ["Số tài khoản ngân hàng là số tài khoản tại ngân hàng của bạn. Để thay đổi, thêm mới tài khoản này bạn hãy liên lạc với ngân hàng. Nếu muốn đăng ký nhiều số tài khoản 1 lúc thì khi đăng ký bạn nhập mỗi tài khoản cách nhau bởi dấu chấm phẩy (;)"]
+    },
+    {
+        "description": "không ký được tờ khai/giấy nộp tiền",
+        "catalogue": [" không ký được ", " không thể ký được ", " không ký điện tử được ", " không thể ký điện tử được "],
+        "keyword": [" không ký được ", " không thể ký được ", " không ký điện tử được ", " không thể ký điện tử được "],
+        "answer": ["Có lẽ bạn bị lỗi java nên không thể ký được. Bạn hãy gõ: \"cách cài đặt java\" hoặc \"cách nâng cấp java\" để được hướng dẫn cài đặt/nâng cấp"]
     },
 
 
@@ -1146,6 +1159,28 @@ function good_str(str) {
     //good_str("a.  b") => a .  b
     return (((((str.replace(/\s{2,}/g," ")).replace(/\./g, " . ")).replace(/,/g, " , ")).replace(/\;/g, " ; ")).replace(/\?/g, " ? ")).replace(/\!/g, " ! ")
 }
+function number_format(str){ //number_format(1000) => 1.000
+    str = str.toString()
+    if (str.trim() === "") return ""
+    var str_to_array = str.split("")
+    var array_len = str_to_array.length
+    var kq = ""
+    var j = 1
+    for (var i = array_len-1; i>=0; i--){
+        var add_dot = (j%3 === 0 && i !== 0)?".":""
+        kq = kq + str_to_array[i] + add_dot
+        j++
+    }
+
+    str_to_array = kq.split("")
+    kq = ""
+    array_len = str_to_array.length
+    for (var i = array_len-1; i>=0; i--){
+        kq = kq + str_to_array[i]
+    }
+
+    return kq
+}
 function search_tmuc(str, obj){
     var tieumuc_len = obj.length
     var str_done = " "+((((((((str.replace("tiểu mục"," ")).replace("là gì", " ")).replace("là cái gì", " ")).replace("là bao nhiêu"," ")).replace("gtgt", "giá trị gia tăng")).replace("tndn", "thu nhập doanh nghiệp")).replace("tncn", "thu nhập cá nhân")).replace("tra cứu", " ")).trim()+" "
@@ -1253,13 +1288,14 @@ function tinh_phat(str){
     var tu_ngay_parse = Date.parse(tu_ngay)
     var den_ngay_parse = Date.parse(den_ngay)
 
-    var so_ngay_tinh_phat = Math.round(den_ngay_parse/days) - Math.round(tu_ngay_parse/days)
+    var so_ngay_tinh_phat = Math.round(den_ngay_parse/days) - Math.round(tu_ngay_parse/days) + 1
+    if (so_ngay_tinh_phat < 1) return ["Số ngày tính phạt của bạn có vấn đề: ngày kết thúc tính phạt phải hơn ngày bắt đầu tính. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
 
     var ty_le_003 = 0.0003
 
     var so_tien_phat = Math.round(Number(so_tien) * Number(ty_le_003) * so_ngay_tinh_phat)
 
-    return ["Tổng tiền phạt: "+so_tien_phat+"\nChi tiết: "+so_tien.trim()+"x0,03%x"+so_ngay_tinh_phat+" ngày = "+so_tien_phat+"\nHiện nay tôi chỉ tính theo tỷ lệ phạt chậm nộp 0,03%. Những trường hợp tính theo tỷ lệ khác tôi chưa xem xét", "Theo Luật số 106/2016/QH13 ngày 6/4/2016 của Quốc hội: Đối với các Khoản nợ tiền thuế phát sinh trước ngày 01/7/2016 mà NNT chưa nộp vào ngân sách, kể cả Khoản tiền nợ thuế được truy thu qua kết quả thanh tra, kiểm tra thì được chuyển sang áp dụng mức tính tiền chậm nộp 0,03% từ ngày 01/7/2016"]
+    return ["Tổng tiền phạt: "+number_format(so_tien_phat)+"\nChi tiết: "+number_format(so_tien.trim())+"x0,03%x"+number_format(so_ngay_tinh_phat)+" ngày = "+number_format(so_tien_phat)+"\nHiện nay tôi chỉ tính theo tỷ lệ phạt chậm nộp 0,03%. Những trường hợp tính theo tỷ lệ khác tôi chưa xem xét", "Theo Luật số 106/2016/QH13 ngày 6/4/2016 của Quốc hội: Đối với các Khoản nợ tiền thuế phát sinh trước ngày 01/7/2016 mà NNT chưa nộp vào ngân sách, kể cả Khoản tiền nợ thuế được truy thu qua kết quả thanh tra, kiểm tra thì được chuyển sang áp dụng mức tính tiền chậm nộp 0,03% từ ngày 01/7/2016"]
 }
 
 /*
@@ -1377,6 +1413,7 @@ app.post('/webhook/', function (req, res) {
                 
                 if (array_item[0] === "function:help"){
                     sendTextMessage(sender, help(a_catalogue, 5))
+                    sendTextMessage(sender, "Trường hợp dùng ứng dụng bị lỗi bạn hãy ghi rõ lỗi từ ứng dụng nào, ví dụ: Gửi tk báo lỗi không thể ký được tệp tờ khai, gửi tk báo lỗi java.lang.null, khi nộp thuế bị lỗi có giấy nộp tiền giống với giấy nộp tiền hiện tại trong 10 ngày gần đây, khi nộp thuế báo lỗi lỗi giấy nộp tiền vượt quá số ký tự của ngân hàng, ...")
                 } else if (array_item[0] === "function:htkk_version"){
                     request(url_htkk, function(err, response, body){  
                         if (!err && response.statusCode == 200) {
