@@ -489,6 +489,18 @@ var a_catalogue = [
         "keyword": [" lỗi ", " chức năng chỉ hoạt động với tài khoản "],
         "answer": ["Bạn xem cách khắc phục thông báo Chức năng chỉ hoạt động với tài khoản đăng ký khai và nộp thuế qua hệ thống Khai thuế qua mạng của TCT tại đây http://lehoangdieu.blogspot.com/2016/02/thong-bao-chuc-nang-chi-hoat-ong-voi.html"]
     },
+    {
+        "description": "thay đổi thông tin khai thuế",
+        "catalogue": [[" kekhaithue ", " nhantokhai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk ", " khai thuế "]],
+        "keyword": [[" đổi ", " sửa "], " thông tin "],
+        "answer": ["Bạn vào TÀI KHOẢN > THAY ĐỔI THÔNG TIN để thay đổi những thông tin như số điện thoại, email, tên người liên hệ, số serial chứng thư số"]
+    },
+
+
+
+
+
+
 
 
     {
@@ -1221,6 +1233,10 @@ function search_tmuc(str, obj){
 
     return kq
 }
+function milliseconds2date(num){
+    var x = new Date(num)
+    return x.getDate() + "/" + (x.getMonth()+1) + "/" + x.getFullYear()
+}
 function tinh_phat(str){
     //str = tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 31/12/2016
     var day_field
@@ -1271,13 +1287,14 @@ function tinh_phat(str){
     //den_ngay co gia tri hop le
 
     var str_tmp = (str.replace(kq[0]," ")).replace(kq[1]," ")  //remove: tu ngay dd/mm/yyyy & den ngay dd/mm/yyyy
+    
     var patt = /(\d+(\.|,)*)+ /
     if (patt.test(str_tmp)){
         var patt_daucham = /\./
         var patt_dauphay = /,/
         if (patt_daucham.test(str_tmp) === true && patt_dauphay.test(str_tmp) === true) return ["Bạn nhập sai số tiền tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
         kq.push(str_tmp.match(patt)[0])
-        so_tien = str_tmp.match(patt)[0].replace(/\.|,/g,"")
+        so_tien = (str_tmp.match(patt)[0].replace(/\.|,/g,"")).trim()
     } else return ["Bạn phải nhập số tiền tính phạt. Ví dụ cách nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
     //so_tien co gia tri hop le
 
@@ -1293,9 +1310,113 @@ function tinh_phat(str){
 
     var ty_le_003 = 0.0003
 
-    var so_tien_phat = Math.round(Number(so_tien) * Number(ty_le_003) * so_ngay_tinh_phat)
+    /*bat dau tinh phat chi tiet */
+    var ty_le_005 = 0.0005
+    var ty_le_007 = 0.0007
 
-    return ["Tổng tiền phạt: "+number_format(so_tien_phat)+"\nChi tiết: "+number_format(so_tien.trim())+"x0,03%x"+number_format(so_ngay_tinh_phat)+" ngày = "+number_format(so_tien_phat)+"\nHiện nay tôi chỉ tính theo tỷ lệ phạt chậm nộp 0,03%. Những trường hợp tính theo tỷ lệ khác tôi chưa xem xét", "Theo Luật số 106/2016/QH13 ngày 6/4/2016 của Quốc hội: Đối với các Khoản nợ tiền thuế phát sinh trước ngày 01/7/2016 mà NNT chưa nộp vào ngân sách, kể cả Khoản tiền nợ thuế được truy thu qua kết quả thanh tra, kiểm tra thì được chuyển sang áp dụng mức tính tiền chậm nộp 0,03% từ ngày 01/7/2016"]
+    var nam_2013 = new Date(2013, 5, 30) //Từ hạn nộp đến 30/6/2013: Tính theo tỷ lệ 0,05% (quy định của Luật số 78/2006/QH11)
+    var nam_2014 = new Date(2014, 11, 31) //Từ ngày 1/7/2013 đến 31/12/2014: Khoản nợ <90 ngày tính theo tỷ lệ 0,05%; Khoản nợ >=90 ngày tính theo tỷ lệ 0,07% (quy định của Luật số 21/2012/QH13)
+    var nam_2016 = new Date(2016, 5, 30) //Từ ngày 1/1/2015 - 30/6/2016: Tính theo tỷ lệ 0,05% (quy định của Luật số 71/2014/QH13). Từ ngày 1/7/2016: Tính theo tỷ lệ 0.03% (quy định của Luật số 106/2016/QH13)
+    
+    var nam_2013_convert = Math.round(Date.parse(nam_2013)/days) //30/6/2013
+    var nam_2014_convert = Math.round(Date.parse(nam_2014)/days) //31/12/2014
+    var nam_2016_convert = Math.round(Date.parse(nam_2016)/days) //30/6/2016
+
+    var tu_ngay_convert = Math.round(tu_ngay_parse/days)
+    var den_ngay_convert = Math.round(den_ngay_parse/days)
+
+    //var tmp_so_ngay
+    var tmp_so_tien_phat
+    //var tmp
+
+    kq = [] //reset array kq
+    //chia thanh cac giai doan thoi gian [ ;30/6/2013] [1/7/2013; 31/12/2014] [1/1/2015; 30/6/2016] [1/7/2016; ]
+    
+    if (tu_ngay_convert > nam_2016_convert) { //Nếu A >= 01/7/2016 --> B >= 01/7/2016: 0.03%
+        tmp_so_tien_phat = Number(so_tien) * (den_ngay_convert - tu_ngay_convert + 1) * ty_le_003
+        kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format(tmp_so_tien_phat))
+    } else if (nam_2014_convert+1 <= tu_ngay_convert && tu_ngay_convert <= nam_2016_convert) { //Neu 01/01/2015 <= A <= 30/6/2016
+        if (den_ngay_convert >= nam_2016_convert+1) { //Nếu B >= 01/7/2016
+            //tmp = (nam_2016_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005
+            tmp_so_tien_phat = (nam_2016_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005 + (den_ngay_convert - (nam_2016_convert+1) + 1) * Number(so_tien) * ty_le_003 //tu ngay - 30/6/2016:0.05%, 1/7/2016 - den ngay: 0.03%
+            kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(nam_2016_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2016_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format((nam_2016_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005))
+            kq.push(milliseconds2date((nam_2016_convert+1)*days) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - (nam_2016_convert+1) + 1) + "x0,03% = " + number_format((den_ngay_convert - (nam_2016_convert+1) + 1) * Number(so_tien) * ty_le_003))
+        } else { //B nam cung giai doan voi A --> B - A + 1
+            tmp_so_tien_phat = (den_ngay_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005
+            kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format(tmp_so_tien_phat))
+        }
+
+    } else if (nam_2013_convert+1 <= tu_ngay_convert && tu_ngay_convert <= nam_2014_convert) { //Neu 1/7/2013 <= A <= 31/12/2014
+        if (nam_2013_convert+1 <= den_ngay_convert && den_ngay_convert <= nam_2014_convert) { //neu B nam cung giai doan voi A
+            if (den_ngay_convert - tu_ngay_convert + 1 <= 90) { //neu <= 90 ngay
+                tmp_so_tien_phat = (den_ngay_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005 //B - A + 1
+                kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format(tmp_so_tien_phat))
+            } else {
+                tmp_so_tien_phat = 90 * Number(so_tien) * ty_le_005 + (den_ngay_convert - tu_ngay_convert - 90 + 1) * Number(so_tien) * ty_le_007 //tu ngay - 90:0.05%, tu ngay 91 - den ngay: 0.07%
+                kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date((tu_ngay_convert+89)*days) + ":" + number_format(so_tien) + "x90x0,05% = " + number_format(90 * Number(so_tien) * ty_le_005))
+                kq.push(milliseconds2date((tu_ngay_convert+90)*days) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - tu_ngay_convert - 90 + 1) + "x0,07% = " + number_format((den_ngay_convert - tu_ngay_convert - 90 + 1) * Number(so_tien) * ty_le_007))
+            }
+        } else if (nam_2014_convert+1 <= den_ngay_convert && den_ngay_convert <= nam_2016_convert) { //neu 1/1/2015 <= B <= 30/6/2016
+            if (nam_2014_convert - tu_ngay_convert + 1 <= 90) { //neu <= 90 ngay
+                tmp_so_tien_phat = (den_ngay_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005 //B-A+1
+                kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format(tmp_so_tien_phat))
+            } else {
+                tmp_so_tien_phat = 90 * Number(so_tien) * ty_le_005 + (nam_2014_convert - tu_ngay_convert - 90 + 1) * Number(so_tien) * ty_le_007 + (den_ngay_convert - (nam_2014_convert+1) + 1) * Number(so_tien) * ty_le_005 //90 ngay dau: 0.05%, tu ngay 91 - 31/12/2014: 0.07%, 1/1/2015 - den ngay: 0.05%
+                kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date((tu_ngay_convert+89)*days) + ":" + number_format(so_tien) + "x90x0,05% = " + number_format(90 * Number(so_tien) * ty_le_005))
+                kq.push(milliseconds2date((tu_ngay_convert+90)*days) + "-" + milliseconds2date(nam_2014_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2014_convert - tu_ngay_convert - 90 + 1) + "x0,07% = " + number_format((nam_2014_convert - tu_ngay_convert - 90 + 1) * Number(so_tien) * ty_le_007))
+                kq.push(milliseconds2date((nam_2014_convert+1)*days) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - (nam_2014_convert+1) + 1) + "x0,05% = " + number_format((den_ngay_convert - (nam_2014_convert+1) + 1) * Number(so_tien) * ty_le_005))
+            }
+        } else if (den_ngay_convert > nam_2016_convert) { //neu B >= 1/7/2016
+            if (nam_2014_convert - tu_ngay_convert + 1 <= 90) { //neu <= 90 ngay
+                tmp_so_tien_phat = (nam_2016_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005 + (den_ngay_convert - (nam_2016_convert+1) + 1) * Number(so_tien) * ty_le_003 //tu ngay - 30/6/2016: 0.05%, 1/7/2016 - den ngay: 0.03%
+                kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(nam_2016_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2016_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format((nam_2016_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005))
+                kq.push(milliseconds2date((nam_2016_convert+1)*days) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - (nam_2016_convert+1) + 1) + "x0,03% = " + number_format((den_ngay_convert - (nam_2016_convert+1) + 1) * Number(so_tien) * ty_le_003))
+            } else {
+                tmp_so_tien_phat = 90 * Number(so_tien) * ty_le_005 + (nam_2014_convert - tu_ngay_convert - 90 + 1) * Number(so_tien) * ty_le_007 + (nam_2016_convert - (nam_2014_convert+1) + 1) * Number(so_tien) * ty_le_005 + (den_ngay_convert - (nam_2016_convert+1) + 1) * Number(so_tien) * ty_le_003 //90 ngay dau: 0.05%, tu ngay 91 - 31/12/2014: 0.07%, 1/1/2015 - 30/6/2016: 0.05%, 1/7/2016 - den ngay: 0.03%
+                kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date((tu_ngay_convert+89)*days) + ":" + number_format(so_tien) + "x90x0,05% = " + number_format(90 * Number(so_tien) * ty_le_005))
+                kq.push(milliseconds2date((tu_ngay_convert+90)*days) + "-" + milliseconds2date(nam_2014_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2014_convert - tu_ngay_convert - 90 + 1) + "x0,07% = " + number_format((nam_2014_convert - tu_ngay_convert - 90 + 1) * Number(so_tien) * ty_le_007))
+                kq.push(milliseconds2date((nam_2014_convert+1)*days) + "-" + milliseconds2date(nam_2016_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2016_convert - (nam_2014_convert+1) + 1) + "x0,05% = " + number_format((nam_2016_convert - (nam_2014_convert+1) + 1) * Number(so_tien) * ty_le_005))
+                kq.push(milliseconds2date((nam_2016_convert+1)*days) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - (nam_2016_convert+1) + 1) + "x0,03% = " + number_format((den_ngay_convert - (nam_2016_convert+1) + 1) * Number(so_tien) * ty_le_003))
+            }
+        }
+    } else if (tu_ngay_convert <= nam_2013_convert) {//neu A <= 30/6/2013
+        if (den_ngay_convert <= nam_2013_convert) {//neu B nam cung giai doan voi A: 0.05%
+            tmp_so_tien_phat = (den_ngay_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005
+            kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format(tmp_so_tien_phat))
+        } else if (nam_2013_convert+1 <= den_ngay_convert && den_ngay_convert <= nam_2014_convert) { //neu 1/7/2013 <= B <= 31/12/2014: co tinh 0.05 va 0.07
+            //tmp_so_tien_phat = (nam_2013_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005 + 
+            if ((nam_2013_convert+1) + 90 >= den_ngay_convert) { //neu <= 90 ngay
+                tmp_so_tien_phat = (den_ngay_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005 //tat ca deu la 0.05% 
+                kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format(tmp_so_tien_phat))
+            } else {
+                tmp_so_tien_phat = (nam_2013_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005 + 90 * Number(so_tien) * ty_le_005 + (den_ngay_convert - (nam_2013_convert+1) -90 + 1) * Number(so_tien) * ty_le_007 //tu ngay - 30/6/2013: 0.05%, 1/7/2013 - 90 ngay: 0.05%, tu ngay 91 - den ngay: 0.07%
+                kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(nam_2013_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2013_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format((nam_2013_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005)) //tu ngay - 30/6/2013: 0.05%
+                kq.push(milliseconds2date((nam_2013_convert+1)*days) + "-" + milliseconds2date((nam_2013_convert+90)*days) + ":" + number_format(so_tien) + "x90x0,05% = " + number_format(90 * Number(so_tien) * ty_le_005)) //1/7/2013 - 90 ngay: 0.05%
+                kq.push(milliseconds2date((nam_2013_convert+91)*days) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - (nam_2013_convert+1) -90 + 1) + "x0,07% = " + number_format((den_ngay_convert - (nam_2013_convert+1) -90 + 1) * Number(so_tien) * ty_le_007)) //tu ngay 91 - den ngay: 0.07%
+            }
+        } else if (nam_2014_convert+1 <= den_ngay_convert && den_ngay_convert <= nam_2016_convert) { //neu 1/1/2015 <= B <= 30/6/2016
+            tmp_so_tien_phat = (nam_2013_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005 + 90 * Number(so_tien) * ty_le_005 + (nam_2014_convert - (nam_2013_convert+1) - 90 + 1) * Number(so_tien) * ty_le_007 + (den_ngay_convert - (nam_2014_convert+1) + 1) * Number(so_tien) * ty_le_005 //tu ngay - 30/6/2013: 0.05%, 1/7/2013 - 90 ngay: 0.05%, 91 ngay - 31/12/2014: 0.07%, 1/1/2015 - den ngay: 0.05%
+            kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(nam_2013_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2013_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format((nam_2013_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005)) //tu ngay - 30/6/2013: 0.05%
+            kq.push(milliseconds2date((nam_2013_convert+1)*days) + "-" + milliseconds2date((nam_2013_convert+90)*days) + ":" + number_format(so_tien) + "x90x0,05% = " + number_format(90 * Number(so_tien) * ty_le_005)) //1/7/2013 - 90 ngay: 0.05%
+            kq.push(milliseconds2date((nam_2013_convert+91)*days) + "-" + milliseconds2date(nam_2014_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2014_convert - (nam_2013_convert+1) - 90 + 1) + "x0,07% = " + number_format((nam_2014_convert - (nam_2013_convert+1) - 90 + 1) * Number(so_tien) * ty_le_007)) //91 ngay - 31/12/2014: 0.07%
+            kq.push(milliseconds2date((nam_2014_convert+1)*days) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - (nam_2014_convert+1) + 1) + "x0,05% = " + number_format((den_ngay_convert - (nam_2014_convert+1) + 1) * Number(so_tien) * ty_le_005)) //1/1/2015 - den ngay: 0.05%
+        } else if (den_ngay_convert > nam_2016_convert) {//neu B >= 1/7/2016
+            tmp_so_tien_phat = (nam_2013_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005 + 90 * Number(so_tien) * ty_le_005 + (nam_2014_convert - (nam_2013_convert+1) - 90 + 1) * Number(so_tien) * ty_le_007 + (nam_2016_convert - (nam_2014_convert+1) + 1) * Number(so_tien) * ty_le_005 + (den_ngay_convert - (nam_2016_convert+1) + 1) * Number(so_tien) * ty_le_003 //tu ngay - 30/6/2013: 0.05%, 1/7/2013 - 90 ngay: 0.05%, 91 ngay - 31/12/2014: 0.07%, 1/1/2015 - 30/6/2016: 0.05%, 1/7/2016 - den ngay: 0.03%
+            kq.push(milliseconds2date(tu_ngay_parse) + "-" + milliseconds2date(nam_2013_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2013_convert - tu_ngay_convert + 1) + "x0,05% = " + number_format((nam_2013_convert - tu_ngay_convert + 1) * Number(so_tien) * ty_le_005)) //tu ngay - 30/6/2013: 0.05%
+            kq.push(milliseconds2date((nam_2013_convert+1)*days) + "-" + milliseconds2date((nam_2013_convert+90)*days) + ":" + number_format(so_tien) + "x90x0,05% = " + number_format(90 * Number(so_tien) * ty_le_005)) //1/7/2013 - 90 ngay: 0.05%
+            kq.push(milliseconds2date((nam_2013_convert+91)*days) + "-" + milliseconds2date(nam_2014_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2014_convert - (nam_2013_convert+1) - 90 + 1) + "x0,07% = " + number_format((nam_2014_convert - (nam_2013_convert+1) - 90 + 1) * Number(so_tien) * ty_le_007)) //91 ngay - 31/12/2014: 0.07%
+            kq.push(milliseconds2date((nam_2014_convert+1)*days) + "-" + milliseconds2date(nam_2016_convert*days) + ":" + number_format(so_tien) + "x" + (nam_2016_convert - (nam_2014_convert+1) + 1) + "x0,05% = " + number_format((nam_2016_convert - (nam_2014_convert+1) + 1) * Number(so_tien) * ty_le_005)) //1/1/2015 - 30/6/2016: 0.05%
+            kq.push(milliseconds2date((nam_2016_convert+1)*days) + "-" + milliseconds2date(den_ngay_parse) + ":" + number_format(so_tien) + "x" + (den_ngay_convert - (nam_2016_convert+1) + 1) + "x0,03% = " + number_format((den_ngay_convert - (nam_2016_convert+1) + 1) * Number(so_tien) * ty_le_003)) //1/7/2016 - den ngay: 0.03%
+
+        }
+    }
+
+    kq.push("TỔNG TIỀN PHẠT NỘP CHẬM: " + number_format(Math.round(tmp_so_tien_phat)))
+
+    return kq
+
+    /*ket thuc tinh phat chi tiet*/
+
 }
 
 /*
