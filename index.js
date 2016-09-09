@@ -1447,7 +1447,7 @@ app.use(bodyParser.json())
 
 // Index route
 app.get('/', function (req, res) {
-    res.send('Hello world, I am a chat bot')
+    res.send('Chúng tôi không thu nhập dữ liệu người dùng để gửi tin nhắn quảng cáo')
 })
 
 // for Facebook verification
