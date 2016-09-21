@@ -1570,9 +1570,10 @@ app.post('/webhook/', function (req, res) {
                         sendTextMessage(sender, result_tinh_phat[i])
                     }
                 } else {
-                    for (var i=0; i < array_item.length; i++){
+                    /*for (var i=0; i < array_item.length; i++){
                             sendTextMessage(sender, array_item[i])
-                    }
+                    }*/
+                    sendTextMessages(sender, array_item, 0)
                 }
             }
 
