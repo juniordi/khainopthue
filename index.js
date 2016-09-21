@@ -1566,9 +1566,10 @@ app.post('/webhook/', function (req, res) {
                 } else if (array_item[0] === "function:tinh_phat") {
                     //var txt_question = ((event.message.text).toLowerCase()).replace(/\s{2,}/g," ")
                     var result_tinh_phat = tinh_phat(((event.message.text).toLowerCase()).replace(/\s{2,}/g," "))
-                    for (var i = 0; i < result_tinh_phat.length; i++){
+                    /*for (var i = 0; i < result_tinh_phat.length; i++){
                         sendTextMessage(sender, result_tinh_phat[i])
-                    }
+                    }*/
+                    sendTextMessages(sender, result_tinh_phat, 0)
                 } else {
                     /*for (var i=0; i < array_item.length; i++){
                             sendTextMessage(sender, array_item[i])
