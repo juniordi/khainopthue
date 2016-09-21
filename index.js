@@ -1549,17 +1549,21 @@ app.post('/webhook/', function (req, res) {
 
                     var search_tm = search_tmuc(text, a_tieumuc)
                     var search_tm_len = search_tm.length
+                    var kq_tim_tmuc = []
                     if (search_tm_len === 0){
                         sendTextMessage(sender, "Tôi không tìm thấy tiểu mục này. Bạn xem danh sách đầy đủ tại đây http://adf.ly/1biHZ7")
                     } else {
                         if (search_tm_len > 30) {
-                            sendTextMessage(sender, "Có quá nhiều kết quả nên tôi chỉ liệt kê 1 phần. Bạn hãy giới hạn lại từ khóa tìm kiếm")
+                            //sendTextMessage(sender, "Có quá nhiều kết quả nên tôi chỉ liệt kê 1 phần. Bạn hãy giới hạn lại từ khóa tìm kiếm")
+                            kq_tim_tmuc.push("Có quá nhiều kết quả nên tôi chỉ liệt kê 1 phần. Bạn hãy giới hạn lại từ khóa tìm kiếm")
                             search_tm_len = 29
                         }
                         for (var i = 0; i < search_tm_len; i++){
-                            sendTextMessage(sender, a_tieumuc[search_tm[i]]["tieumuc"]+" - "+a_tieumuc[search_tm[i]]["tentieumuc"])
+                            //sendTextMessage(sender, a_tieumuc[search_tm[i]]["tieumuc"]+" - "+a_tieumuc[search_tm[i]]["tentieumuc"])
+                            kq_tim_tmuc.push(a_tieumuc[search_tm[i]]["tieumuc"] + " - " + a_tieumuc[search_tm[i]]["tentieumuc"])
                         }
-                        sendTextMessage(sender, "Bạn có thể xem danh sách đầy đủ tại đây http://adf.ly/1biHZ7")
+                        kq_tim_tmuc.push("Bạn có thể xem danh sách đầy đủ tại đây http://adf.ly/1biHZ7")
+                        sendTextMessages(sender, kq_tim_tmuc, 0)
                     }
 
 
@@ -1632,9 +1636,6 @@ function sendTextMessage(sender, text) {
 }
 
 function sendTextMessages(sender, text, i) {
-    messageData = {
-        text:text
-    }
     if (i < text.length) {
         request({
             url: 'https://graph.facebook.com/v2.6/me/messages',
