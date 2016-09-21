@@ -1608,7 +1608,7 @@ app.post('/webhook/', function (req, res) {
 
 var token = "EAAPQqkSEMT8BAIFoSDvW5bCHZAlZABF8jZC2hXb1WphbHlNcPVy55piTLD93O3Ujx9ElPXRHKGTkoooZBooVaDAC3PJFfXRMRs0L0ezG6yD0ndFufwPhMcMMGCcNYxljM7ER45q97FZCweVByZA0anCjVpafLZCnoBdbZBUCQk5b1wZDZD"
 
-/*function sendTextMessage(sender, text) {
+function sendTextMessage(sender, text) {
     messageData = {
         text:text
     }
@@ -1627,8 +1627,33 @@ var token = "EAAPQqkSEMT8BAIFoSDvW5bCHZAlZABF8jZC2hXb1WphbHlNcPVy55piTLD93O3Ujx9
             console.log('Error: ', response.body.error)
         }
     })
-}*/
+}
 
+function sendTextMessages(sender, text, i) {
+    messageData = {
+        text:text
+    }
+    if (i < text.length) {
+        request({
+            url: 'https://graph.facebook.com/v2.6/me/messages',
+            qs: {access_token:token},
+            method: 'POST',
+            json: {
+                recipient: {id:sender},
+                message: {text:text[i]},
+            }
+        }, function(error, response, body) {
+            if (error) {
+                console.log('Error sending messages: ', error)
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error)
+            }
+            sendTextMessages(sender, text, i+1)
+        })
+    } else return
+}
+
+/*
 function sendTextMessage(sender, text) {
   var messageData = {
     recipient: {
@@ -1655,4 +1680,4 @@ function callSendAPI(messageData) {
             console.log('Error: ', response.body.error)
         }
     });  
-}
+}}*/
