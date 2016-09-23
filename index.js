@@ -1,7 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var request = require('request')
-var cheerio = require('cheerio')
+var cheerio = require('cheerio') //lib de thao tac voi HTML DOM nhu jQuery
 var app = express()
 
 //data
@@ -1137,7 +1137,7 @@ var a_tieumuc = [
 
 ]
 
-var a_sorry = "Rất tiếc vì tôi chưa có dữ liệu bạn cần. Hãy thông cảm là tôi chỉ hiểu câu hỏi khi bạn viết tiếng Việt có dấu và hạn chế viết tắt nhé"
+var a_sorry = "Rất tiếc vì tôi chưa có dữ liệu bạn cần. Hãy thông cảm là tôi chỉ hiểu câu hỏi khi bạn viết tiếng Việt có dấu và hạn chế viết tắt nhé (Gõ Trợ giúp để xem hướng dẫn)"
 var url_htkk = 'http://www.gdt.gov.vn/wps/portal/home/hotrokekhai'
 
 function check(str, obj){ //tim duoc bao nhieu tu khoa trong obj
@@ -1155,11 +1155,13 @@ function check(str, obj){ //tim duoc bao nhieu tu khoa trong obj
     return kq
 }
 function help(a, value){
-    var str_result = "Tôi có thể trợ giúp những vẫn đề liên quan đến khai nộp thuế, như:\n"
+    var str_result = []
+    str_result.push("Tôi có thể trợ giúp những vẫn đề liên quan đến khai nộp thuế, như:")
     for (var i = a.length-1; i >= a.length-Number(value); i--){
-        str_result = str_result + "- " + a[i]["description"] + "\n"
+        str_result.push(a[i]["description"])
     }
-    str_result = str_result.substring(0,310) + "\n..."
+    str_result.push("Trường hợp dùng ứng dụng bị lỗi bạn hãy ghi rõ lỗi từ ứng dụng nào, ví dụ: Gửi tk báo lỗi không thể ký được tệp tờ khai, gửi tk báo lỗi java.lang.null, khi nộp thuế bị lỗi có giấy nộp tiền giống với giấy nộp tiền hiện tại trong 10 ngày gần đây, khi nộp thuế báo lỗi lỗi giấy nộp tiền vượt quá số ký tự của ngân hàng, ...")
+    str_result.push("Bạn có thể xem video hướng dẫn tại https://www.youtube.com/playlist?list=PL9JVxqAVc8XMGC2wpPCXCuvKTT3Bc99G4")
     return str_result
 }
 function good_str(str) {
@@ -1533,8 +1535,7 @@ app.post('/webhook/', function (req, res) {
                 var array_item = a_item >= 0 ? a_catalogue[a_item]["answer"] : a[normal_item]["answer"]
                 
                 if (array_item[0] === "function:help"){
-                    sendTextMessage(sender, help(a_catalogue, 5))
-                    sendTextMessage(sender, "Trường hợp dùng ứng dụng bị lỗi bạn hãy ghi rõ lỗi từ ứng dụng nào, ví dụ: Gửi tk báo lỗi không thể ký được tệp tờ khai, gửi tk báo lỗi java.lang.null, khi nộp thuế bị lỗi có giấy nộp tiền giống với giấy nộp tiền hiện tại trong 10 ngày gần đây, khi nộp thuế báo lỗi lỗi giấy nộp tiền vượt quá số ký tự của ngân hàng, ...")
+                    sendTextMessages(sender, help(a_catalogue, 5), 0)
                 } else if (array_item[0] === "function:htkk_version"){
                     request(url_htkk, function(err, response, body){  
                         if (!err && response.statusCode == 200) {
