@@ -4,6 +4,16 @@ var request = require('request')
 var cheerio = require('cheerio') //lib de thao tac voi HTML DOM nhu jQuery
 var app = express()
 
+app.set('port', (process.env.PORT || 8080))
+// Process application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}))
+
+// Process application/json
+app.use(bodyParser.json())
+
+var PAGE_ACCESS_TOKEN = "EAAPQqkSEMT8BAIFoSDvW5bCHZAlZABF8jZC2hXb1WphbHlNcPVy55piTLD93O3Ujx9ElPXRHKGTkoooZBooVaDAC3PJFfXRMRs0L0ezG6yD0ndFufwPhMcMMGCcNYxljM7ER45q97FZCweVByZA0anCjVpafLZCnoBdbZBUCQk5b1wZDZD"
+
+
 //data
 var a = [
     {
@@ -133,7 +143,7 @@ var a_catalogue = [
     {
         "description": "phiên bản htkk",
         "catalogue":[" htkk "],
-        "keyword": [[" phiên bản ", " version ", " bản "]],
+        "keyword": [[" phiên bản ", " version ", " bản ", " bao nhiêu "]],
         "answer": ["function:htkk_version"]
     },
     {
@@ -340,7 +350,7 @@ var a_catalogue = [
         "description": "tỷ lệ tính tiền chậm nộp",
         "catalogue": [[" chậm nộp ", " nộp chậm "]],
         "keyword": [" tỷ lệ "],
-        "answer": ["Tỷ lệ tính tiền chậm nộp trước ngày 01/01/2015 là 0,05%/ngày với các khoản nợ dưới 90 ngày, từ 90 ngày sẽ tính 0,07%/ngày. Từ ngày 01/01/2015 tính phạt 0,05%/ngày. Từ ngày 01/7/2016 là 0,03%/ngày"]
+        "answer": ["Từ hạn nộp đến 30/6/2013: Tính theo tỷ lệ 0,05% (quy định của Luật số 78/2006/QH11)", "Từ ngày 1/7/2013 đến 31/12/2014: tỷ lệ 0,05% kể từ ngày hết thời hạn nộp thuế đến ngày thứ 90; 0,07% kể từ ngày chậm nộp thứ 91 trở đi. (quy định của Luật số 21/2012/QH13)", "Từ ngày 1/1/2015 - 30/6/2016: Tính theo tỷ lệ 0,05% (quy định của Luật số 71/2014/QH13)", "Từ ngày 1/7/2016: Tính theo tỷ lệ 0.03% (quy định của Luật số 106/2016/QH13)"]
     },
     {
         "description": "cách tính phạt chậm nộp",
@@ -372,7 +382,7 @@ var a_catalogue = [
     {
         "description": "Khai thuế qua mạng như thế nào",
         "catalogue": [[" khai thuế ", " kê khai ", " nộp tờ khai ", " nộp tk ", " gửi tk ", " gửi tờ khai "]],
-        "keyword": [[" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào ", " như nào "]],
+        "keyword": [[" thế nào ", " bằng cách nào ", " hướng dẫn ", " kiểu gì ", " làm cách nào ", " như nào ", " cách "]],
         "answer": ["Để khai thuế qua mạng bạn phải:\n- Cài đặt các phần mềm cần thiết.\n- Có chứng thư số\n- Đăng ký tài khoản trên trang http://kekhaithue.gdt.gov.vn \n- Bạn có thể xem cách nộp tại đây https://youtu.be/IMeg6n6reI0"]
     },
     {
@@ -1137,8 +1147,9 @@ var a_tieumuc = [
 
 ]
 
-var a_sorry = "Rất tiếc vì tôi chưa có dữ liệu bạn cần. Hãy thông cảm là tôi chỉ hiểu câu hỏi khi bạn viết tiếng Việt có dấu và hạn chế viết tắt nhé (Gõ Trợ giúp để xem hướng dẫn)"
+var a_sorry = 'Rất tiếc vì tôi chưa có dữ liệu bạn cần. Hãy thông cảm là tôi chỉ hiểu câu hỏi khi bạn viết tiếng Việt có dấu và hạn chế viết tắt nhé. Bạn có thể gõ "Trợ giúp" để xem hướng dẫn'
 var url_htkk = 'http://www.gdt.gov.vn/wps/portal/home/hotrokekhai'
+var item_show = 5 //số câu hỏi trợ giúp sẽ hiển thị nếu ko tìm thấy câu trả lời ng dùng đưa vào
 
 function check(str, obj){ //tim duoc bao nhieu tu khoa trong obj
     var kq = 0
@@ -1329,7 +1340,6 @@ function tinh_phat(str){
 
     //var tmp_so_ngay
     var tmp_so_tien_phat
-    //var tmp
 
     kq = [] //reset array kq
     //chia thanh cac giai doan thoi gian [ ;30/6/2013] [1/7/2013; 31/12/2014] [1/1/2015; 30/6/2016] [1/7/2016; ]
@@ -1439,17 +1449,10 @@ function htkk_version(){
 }
 */
 
-app.set('port', (process.env.PORT || 8080))
-
-// Process application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: false}))
-
-// Process application/json
-app.use(bodyParser.json())
 
 // Index route
 app.get('/', function (req, res) {
-    res.send('Chúng tôi không thu nhập dữ liệu người dùng để gửi tin nhắn quảng cáo')
+    res.send('Access https://m.me/khainopthue to chat')
 })
 
 // for Facebook verification
@@ -1465,15 +1468,187 @@ app.listen(app.get('port'), function() {
     console.log('running on port', app.get('port'))
 })
 
-app.post('/webhook/', function (req, res) {
-    messaging_events = req.body.entry[0].messaging
-    for (i = 0; i < messaging_events.length; i++) {
-        event = req.body.entry[0].messaging[i]
-        sender = event.sender.id
-        if (event.message && event.message.text) {
-            text = " " + good_str((event.message.text).toLowerCase()) + " "
+/*
+ * All callbacks for Messenger are POST-ed. They will be sent to the same
+ * webhook. Be sure to subscribe your app to your page to receive callbacks
+ * for your page. 
+ * https://developers.facebook.com/docs/messenger-platform/product-overview/setup#subscribe_app
+ *
+ */
+app.post('/webhook', function (req, res) {
+  var data = req.body;
 
-            //bat dau xu ly
+
+
+  // Make sure this is a page subscription
+  if (data.object == 'page') {
+    // Iterate over each entry
+    // There may be multiple if batched
+    data.entry.forEach(function(pageEntry) {
+      var pageID = pageEntry.id;
+      var timeOfEvent = pageEntry.time;
+
+
+      // Iterate over each messaging event
+      /*pageEntry.messaging.forEach(function(messagingEvent) {
+        if (messagingEvent.optin) {
+          receivedAuthentication(messagingEvent);
+        } else if (messagingEvent.message) {
+          receivedMessage(messagingEvent);
+        } else if (messagingEvent.delivery) {
+          receivedDeliveryConfirmation(messagingEvent);
+        } else if (messagingEvent.postback) {
+          receivedPostback(messagingEvent);
+        } else if (messagingEvent.read) {
+          receivedMessageRead(messagingEvent);
+        } else if (messagingEvent.account_linking) {
+          receivedAccountLink(messagingEvent);
+        } else {
+          console.log("Webhook received unknown messagingEvent: ", messagingEvent);
+        }
+      });*/
+      pageEntry.messaging.forEach(function(messagingEvent) {
+        if (messagingEvent.message) {
+          receivedMessage(messagingEvent);
+        } else if (messagingEvent.postback) {
+          receivedPostback(messagingEvent);
+        } else {
+          console.log("Webhook received unknown messagingEvent: ", messagingEvent);
+        }
+      });
+    });
+
+    // Assume all went well.
+    //
+    // You must send back a 200, within 20 seconds, to let us know you've 
+    // successfully received the callback. Otherwise, the request will time out.
+    res.sendStatus(200);
+  }
+});
+
+/*
+ * Message Event
+ *
+ * This event is called when a message is sent to your page. The 'message' 
+ * object format can vary depending on the kind of message that was received.
+ * Read more at https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-received
+ *
+ * For this example, we're going to echo any text that we get. If we get some 
+ * special keywords ('button', 'generic', 'receipt'), then we'll send back
+ * examples of those bubbles to illustrate the special message bubbles we've 
+ * created. If we receive a message with an attachment (image, video, audio), 
+ * then we'll simply confirm that we've received the attachment.
+ * 
+ */
+function receivedMessage(event) {
+  var sender = event.sender.id; //var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfMessage = event.timestamp;
+  var message = event.message;
+
+  /*console.log("Received message for user %d and page %d at %d with message:", 
+    senderID, recipientID, timeOfMessage);
+  console.log(JSON.stringify(message));*/
+
+  var isEcho = message.is_echo;
+  var messageId = message.mid;
+  var appId = message.app_id;
+  var metadata = message.metadata;
+
+  // You may get a text or attachment but not both
+  var messageText = message.text;
+  var messageAttachments = message.attachments;
+  var quickReply = message.quick_reply;
+
+  /*
+  if (isEcho) {
+    // Just logging message echoes to console
+    console.log("Received echo for message %s and app %d with metadata %s", 
+      messageId, appId, metadata);
+    return;
+  } else if (quickReply) {
+    var quickReplyPayload = quickReply.payload;
+    console.log("Quick reply for message %s with payload %s",
+      messageId, quickReplyPayload);
+
+    sendTextMessage(senderID, "Quick reply tapped");
+    return;
+  }
+  */
+
+  if (messageText) {
+
+    // If we receive a text message, check to see if it matches any special
+    // keywords and send back the corresponding example. Otherwise, just echo
+    // the text we received.
+    /*
+    switch (messageText) {
+      case 'image':
+        sendImageMessage(senderID);
+        break;
+
+      case 'gif':
+        sendGifMessage(senderID);
+        break;
+
+      case 'audio':
+        sendAudioMessage(senderID);
+        break;
+
+      case 'video':
+        sendVideoMessage(senderID);
+        break;
+
+      case 'file':
+        sendFileMessage(senderID);
+        break;
+
+      case 'button':
+        sendButtonMessage(senderID);
+        break;
+
+      case 'generic':
+        sendGenericMessage(senderID);
+        break;
+
+      case 'receipt':
+        sendReceiptMessage(senderID);
+        break;
+
+      case 'quick reply':
+        sendQuickReply(senderID);
+        break;        
+
+      case 'read receipt':
+        sendReadReceipt(senderID);
+        break;        
+
+      case 'typing on':
+        sendTypingOn(senderID);
+        break;        
+
+      case 'typing off':
+        sendTypingOff(senderID);
+        break;        
+
+      case 'account linking':
+        sendAccountLinking(senderID);
+        break;
+
+      default:
+        sendTextMessage(senderID, messageText);
+    } */
+    /*if (messageText === "postback") {
+        for (var i = 0; i < 10; i++){
+          sendPostback(senderID, a_catalogue[i]["description"], i)
+        }
+    }*/ //else { //bat dau xu ly cau hoi
+
+        /*start*/
+        //sender = event.sender.id
+        //if (event.message && event.message.text) {
+            text = " " + good_str((messageText).toLowerCase()) + " "
+
             var a_len = a.length
             var a_catalogue_len = a_catalogue.length
             var a_item = -1 //vi tri item cua a_catalogue
@@ -1484,22 +1659,13 @@ app.post('/webhook/', function (req, res) {
             var keyword_num_normal = 0 //so tu khoa tim duoc cua a
             var keyword_result_normal = 0 //tong so tu khoa cua a
 
+            var a_kq_tim_trong_catalogue = []
 
-            /*for (var i = 0; i < a_len; i++) {
-                if (check(text, a[i]["keyword"]) > keyword_num && check(text, a[i]["keyword"]) > 0) {
-                    a_item = i
-                    keyword_result = a[i]["keyword"].length
-                    keyword_num = check(text, a[i]["keyword"])   
-                } else if (check(text, a[i]["keyword"]) == keyword_num && check(text, a[i]["keyword"]) > 0) {
-                    if (Number(a[i]["keyword"].length) - Number(check(text, a[i]["keyword"])) < Number(keyword_result) - Number(keyword_num)) {
-                        a_item = i
-                        keyword_result = a[i]["keyword"].length
-                        keyword_num = check(text, a[i]["keyword"])
-                    }
-                }
-            }*/
             for (var i = 0; i < a_catalogue_len; i++) {
                 if (check(text, a_catalogue[i]["catalogue"]) > 0) {
+                    //cho vao 1 mang nếu tìm đúng catalogue
+                    a_kq_tim_trong_catalogue.push(i)
+
                     if (check(text, a_catalogue[i]["catalogue"]) > 0 && check(text, a_catalogue[i]["keyword"]) > keyword_num && check(text, a_catalogue[i]["keyword"]) > 0) {
                         a_item = i
                         keyword_result = a_catalogue[i]["keyword"].length
@@ -1529,8 +1695,11 @@ app.post('/webhook/', function (req, res) {
                     }
                 }
             }
-            if (a_item < 0 && normal_item < 0) {
-                sendTextMessage(sender, a_sorry)         
+            if (a_item < 0 && normal_item < 0) {//ko tim thay
+                if (a_kq_tim_trong_catalogue.length > 0) {
+                    sendTextMessage(sender, "Tôi chưa có dữ liệu bạn tìm. Dưới đây là các kết quả tương tự")
+                    sendGenericMessage(sender, a_kq_tim_trong_catalogue, item_show)
+                } else sendTextMessage(sender, a_sorry)         
             } else {
                 var array_item = a_item >= 0 ? a_catalogue[a_item]["answer"] : a[normal_item]["answer"]
                 
@@ -1569,51 +1738,128 @@ app.post('/webhook/', function (req, res) {
 
 
                 } else if (array_item[0] === "function:tinh_phat") {
-                    //var txt_question = ((event.message.text).toLowerCase()).replace(/\s{2,}/g," ")
-                    var result_tinh_phat = tinh_phat(((event.message.text).toLowerCase()).replace(/\s{2,}/g," "))
-                    /*for (var i = 0; i < result_tinh_phat.length; i++){
-                        sendTextMessage(sender, result_tinh_phat[i])
-                    }*/
+                    var result_tinh_phat = tinh_phat(((messageText).toLowerCase()).replace(/\s{2,}/g," "))
                     sendTextMessages(sender, result_tinh_phat, 0)
                 } else {
-                    /*for (var i=0; i < array_item.length; i++){
-                            sendTextMessage(sender, array_item[i])
-                    }*/
                     sendTextMessages(sender, array_item, 0)
                 }
             }
 
-            /*
-            if (a_item < 0) {
-                sendTextMessage(sender, a_sorry)
-            } else {
-                if (a[a_item]["answer"][0] == "function:help"){
-                    sendTextMessage(sender, help(a, 5))
-                } else if (a[a_item]["answer"][0] == "function:htkk_version"){
-                    request(url_htkk, function(err, response, body){  
-                        if (!err && response.statusCode == 200) {
-                            var $ = cheerio.load(body)
-                            var txt = $('.news > div > a').text().trim()
-                        
-                            sendTextMessage(sender, 'Phiên bản HTKK hiện tại đang là ' + txt.substr(txt.lastIndexOf(" "),txt.length-txt.lastIndexOf(" ")) + ' được nâng cấp ' + $('.news > div > span').text() + '\nTải phiên bản HTKK mới nhất tại http://adf.ly/1aAYdJ')
-                        }
-                        else sendTextMessage(sender, 'Không xem được phiên bản của HTKK do kết nối tới máy chủ lỗi')
-                    })
-                } else {
-                    for (var i=0; i < a[a_item]["answer"].length; i++){
-                            sendTextMessage(sender, a[a_item]["answer"][i])
-                    }
-                }
-            }*/
-            //ket thuc xu ly
+        //}
 
-            //sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+        /*end*/
+
+        /*if (messageText === "generic") {
+            var arr = [1, 2, 3, 4, 5, 6, 7, 8] //tim thay tung nay kq  
+            sendGenericMessage(senderID, arr, item_show)
+        } else {
+            sendTextMessage(senderID, "Toi da nhan duoc");
+        }*/
+    //}
+    //ket thuc xu ly cau hoi
+  } else if (messageAttachments) {
+    sendTextMessage(senderID, "Rất tiếc, tôi không xử lý những tin nhắn có đính kèm tệp :(");
+  }
+} //end function receivedMessage
+
+
+
+/*
+ * Postback Event
+ *
+ * This event is called when a postback is tapped on a Structured Message. 
+ * https://developers.facebook.com/docs/messenger-platform/webhook-reference/postback-received
+ * 
+ */
+function receivedPostback(event) {
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfPostback = event.timestamp;
+
+  // The 'payload' param is a developer-defined field which is set in a postback 
+  // button for Structured Messages. 
+  var payload = event.postback.payload;
+
+
+  /*console.log("Received postback for user %d and page %d with payload '%s' " + 
+    "at %d", senderID, recipientID, payload, timeOfPostback);*/
+
+  // When a postback is called, we'll send a message back to the sender to 
+  // let them know it was successful
+  if (payload.substr(-8, 8) === ",xemtiep") {
+    var arr_split = payload.split(",")
+    arr_split.pop() //delete phan tu "xemtiep" ra khoi mang
+    sendGenericMessage(senderID, arr_split, item_show)
+  } else {
+        var tmp = []
+        var tmp_show
+        tmp.push("Bạn đã hỏi: " + a_catalogue[payload]["description"])
+        for (var i = 0; i < a_catalogue[payload]["answer"].length; i++){
+            tmp_show = (a_catalogue[payload]["answer"][i].slice(0,8) === 'function') ? 'Bạn hãy gõ "' + a_catalogue[payload]["description"] + '" để xem câu trả lời' : a_catalogue[payload]["answer"][i]
+            tmp.push(tmp_show);
         }
+        sendTextMessages(senderID, tmp, 0)
     }
-    res.sendStatus(200)
-})
+}
 
-var token = "EAAPQqkSEMT8BAIFoSDvW5bCHZAlZABF8jZC2hXb1WphbHlNcPVy55piTLD93O3Ujx9ElPXRHKGTkoooZBooVaDAC3PJFfXRMRs0L0ezG6yD0ndFufwPhMcMMGCcNYxljM7ER45q97FZCweVByZA0anCjVpafLZCnoBdbZBUCQk5b1wZDZD"
+/*
+ * Send a Structured Message (Generic Message type) using the Send API.
+ *
+ */
+function sendGenericMessage(recipientId, arr, item) { //arr: mang can duyet, item: so ban ghi can hien thi
+  var tmp
+  var json_tmp = []
+  var length_item = (arr.length >= item) ? item : arr.length
+  for (var i = 0; i < length_item; i++){
+        tmp = '{' +
+            '"title":"' + a_catalogue[arr[i]]["description"] + '",' +
+            '"subtitle":"",' +
+            '"item_url":"",' +
+            '"image_url":"https://c4.staticflickr.com/9/8138/29980622835_735846730d.jpg",' +
+            '"buttons": [{' +
+                       '"type":"postback",' +
+                       '"title":"Xem",' +
+                       '"payload":' + arr[i] +
+                       '}]' +
+            '}'
+        json_tmp.push(JSON.parse(tmp))
+
+  }
+  if (arr.length > item) {
+        arr.splice(0, item) //xóa các item đã hiển thị ra khỏi mảng
+        tmp = '{' +
+            '"title":"Xem các câu hỏi trợ giúp khác",' +
+            '"subtitle":"",' +
+            '"item_url":"",' +
+            '"image_url":"https://c1.staticflickr.com/9/8125/29372298304_a83d9dfc80_o.png",' +
+            '"buttons": [{' +
+                       '"type":"postback",' +
+                       '"title":"Tiếp tục",' +
+                       '"payload":"' + arr.join() + ',xemtiep"' +
+                       '}]' +
+            '}'
+        json_tmp.push(JSON.parse(tmp))
+  }
+
+
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: json_tmp
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+}
+
 
 function sendTextMessage(sender, text) {
     messageData = {
@@ -1621,7 +1867,7 @@ function sendTextMessage(sender, text) {
     }
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:token},
+        qs: {access_token:PAGE_ACCESS_TOKEN},
         method: 'POST',
         json: {
             recipient: {id:sender},
@@ -1640,7 +1886,7 @@ function sendTextMessages(sender, text, i) {
     if (i < text.length) {
         request({
             url: 'https://graph.facebook.com/v2.6/me/messages',
-            qs: {access_token:token},
+            qs: {access_token:PAGE_ACCESS_TOKEN},
             method: 'POST',
             json: {
                 recipient: {id:sender},
@@ -1656,32 +1902,76 @@ function sendTextMessages(sender, text, i) {
         })
     } else return
 }
-
-/*
-function sendTextMessage(sender, text) {
+/*function sendTextMessage(recipientId, messageText) {
   var messageData = {
     recipient: {
-      id: sender
+      id: recipientId
     },
     message: {
-      text: text
+      text: messageText
     }
   };
 
   callSendAPI(messageData);
+}*/
+
+function sendPostback(recipientId, messageText, item){
+
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+
+    message:{
+      attachment:{
+        type:"template",
+        payload:{
+          template_type:"generic",
+          elements:[
+            {
+              title:messageText,
+              item_url:" ",
+              image_url:" ",
+              subtitle:" ",
+              buttons:[
+                {
+                  type:"postback",
+                  title:"Xem",
+                  payload:item
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+
+  };
+
+  callSendAPI(messageData);
 }
+
 function callSendAPI(messageData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: { access_token: token },
+    qs: { access_token: PAGE_ACCESS_TOKEN },
     method: 'POST',
     json: messageData
 
-  }, function(error, response, body) {
-        if (error) {
-            console.log('Error sending messages: ', error)
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error)
-        }
-    });  
-}}*/
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var recipientId = body.recipient_id;
+      var messageId = body.message_id;
+
+      if (messageId) {
+        console.log("Successfully sent message with id %s to recipient %s", 
+          messageId, recipientId);
+      } else {
+      console.log("Successfully called Send API for recipient %s", 
+        recipientId);
+      }
+    } else {
+      console.error(response.error);
+    }
+  });  
+}
