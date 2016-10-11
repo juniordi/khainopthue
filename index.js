@@ -356,13 +356,13 @@ var a_catalogue = [
         "description": "cách tính phạt chậm nộp",
         "catalogue": [[" chậm nộp ", " nộp chậm "]],
         "keyword": [[" cách tính ", " như nào ", " thế nào ", " kiểu gì ", " hướng dẫn "]],
-        "answer": ["Cách tính phạt chậm nộp: Số tiền phạt = Số tiền nợ x tỷ lệ x số ngày chậm nộp", "Bạn có thể nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016. Tôi sẽ tính số tiền phạt chậm nộp cho bạn"]
+        "answer": ["Cách tính phạt chậm nộp: Số tiền phạt = Số tiền nợ x tỷ lệ x số ngày chậm nộp", "Bạn có thể nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016. Tôi sẽ tính số tiền phạt chậm nộp cho bạn", "Nếu tính phạt chậm nộp tiền phạt hãy nhập: tính phạt chậm nộp tiền phạt 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
     },
     {
         "description": "cách nhập để tính phạt",
         "catalogue": [[" chậm nộp ", " nộp chậm "]],
         "keyword": [" tính phạt "],
-        "answer": ["Ví dụ bạn nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016. Tôi sẽ tính số tiền phạt chậm nộp cho bạn"]
+        "answer": ["Ví dụ bạn nhập: tính phạt chậm nộp 15.000.000 từ ngày 01/01/2016 đến 30/6/2016. Tôi sẽ tính số tiền phạt chậm nộp cho bạn", "Nếu tính phạt chậm nộp tiền phạt hãy nhập: tính phạt chậm nộp tiền phạt 15.000.000 từ ngày 01/01/2016 đến 30/6/2016"]
     },
     {
         "description": "tính phạt chậm nộp",
