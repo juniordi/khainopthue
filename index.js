@@ -521,7 +521,7 @@ var a_catalogue = [
     },
     {
         "description": "quên mật khẩu khai nộp thuế",
-        "catalogue": [" kê khai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk ", " nộp thuế ", " khai nộp thuế ", " khai thuế ", " kekhaithue ", " nhantokhai ", " nopthue "],
+        "catalogue": [" kê khai ", " gửi tờ khai ", " gửi tk ", " nộp tờ khai ", " nộp tk ", " nộp thuế ", " khai nộp thuế ", " khai thuế ", " kekhaithue ", "khainopthue", " nhantokhai ", " nopthue ", " noptokhai "],
         "keyword": [[" quên ", " mất ", " lấy lại ", " không nhớ "], [" mật khẩu ", " pass ", " password "]],
         "answer": ["Bạn xem cách lấy lại mật khẩu ở đây http://lehoangdieu.blogspot.com/2016/02/lay-lai-mat-khau-khai-thue-va-nop-thue.html"]
     },
@@ -1182,7 +1182,15 @@ function good_str(str) {
     //good_str("a!b") => a ! b
     //good_str("a;b") => a ; b
     //good_str("a.  b") => a .  b
-    return (((((str.replace(/\s{2,}/g," ")).replace(/\./g, " . ")).replace(/,/g, " , ")).replace(/\;/g, " ; ")).replace(/\?/g, " ? ")).replace(/\!/g, " ! ")
+    var str_tmp = (((((str.replace(/\s{2,}/g," ")).replace(/\./g, " . ")).replace(/,/g, " , ")).replace(/\;/g, " ; ")).replace(/\?/g, " ? ")).replace(/\!/g, " ! ")
+    
+    var a_keyword = ['noptokhai', 'nop to khai', 'nop tk', 'nộp tờ khai', 'nộp tk', 'nhantokhai', 'nhan to khai', 'nhan tk', 'nhận tờ khai', 'nhận tk', 'ke khai thue', 'kê khai thuế']; // --> 'kekhaithue'
+    a_keyword.map(function(val, key){
+        var my_regex = new RegExp(val, "g")
+        if (my_regex.test(str_tmp))
+            str_tmp = str_tmp.replace(my_regex, 'kekhaithue')
+    })
+    return str_tmp
 }
 function number_format(str){ //number_format(1000) => 1.000
     str = str.toString()
