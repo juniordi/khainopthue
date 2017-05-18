@@ -768,7 +768,7 @@ var a_tieumuc = [
 {"muc": "1700", "tenmuc": "Thuế giá trị gia tăng", "tieumuc": "1703", "tentieumuc": "Thuế giá trị gia tăng hàng nhập khẩu qua biên giới đất liền"},
 {"muc": "1700", "tenmuc": "Thuế giá trị gia tăng", "tieumuc": "1704", "tentieumuc": "Thuế giá trị gia tăng từ hoạt động thăm dò, phát triển mỏ và khai thác dầu, khí thiên nhiên ( không kể thuế giá trị gia tăng thu theo hiệp định, hợp đồng thăm dò, khai thác dầu, khí"},
 {"muc": "1700", "tenmuc": "Thuế giá trị gia tăng", "tieumuc": "1705", "tentieumuc": "Thuế giá trị gia tăng hoạt động SXKT"},
-"{""muc"": ""1700"", ""tenmuc"": ""Thuế giá trị gia tăng"", ""tieumuc"": ""1749"", ""tentieumuc"": ""Khác (Bao gồm cả thu nợ về thuế doanh thu.)""},"
+{"muc": "1700", "tenmuc": "Thuế giá trị gia tăng", "tieumuc": "1749", "tentieumuc": "Khác (Bao gồm cả thu nợ về thuế doanh thu.)"},"
 {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1751", "tentieumuc": "Hàng nhập khẩu (trừ thuế nhập khẩu hàng qua biên giới đất liền)"},
 {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1752", "tentieumuc": "Hàng nhập khẩu qua biên giới đất liền"},
 {"muc": "1750", "tenmuc": "Thuế tiêu thụ đặc biệt", "tieumuc": "1753", "tentieumuc": "Mặt hàng thuốc lá điếu, xì gà sản xuất trong nước"},
@@ -797,7 +797,7 @@ var a_tieumuc = [
 {"muc": "1850", "tenmuc": "Thuế xuất khẩu", "tieumuc": "1899", "tentieumuc": "Thuế xuất khẩu - Khác"},
 {"muc": "1900", "tenmuc": "Thuế nhập khẩu", "tieumuc": "1901", "tentieumuc": "Thuế nhập khẩu (trừ thuế nhập khẩu qua biên giới đất liền)"},
 {"muc": "1900", "tenmuc": "Thuế nhập khẩu", "tieumuc": "1902", "tentieumuc": "Thuế nhập khẩu qua biên giới đất liền"},
-"{""muc"": ""1900"", ""tenmuc"": ""Thuế nhập khẩu"", ""tieumuc"": ""1903"", ""tentieumuc"": ""Thuế nhập khẩu bổ sung (thuế tự vệ) (Dùng để hoạch toán phần thuế nhập khẩu áp dụng chế độ tự vệ theo quy định của pháp luật)""},"
+{"muc": "1900", "tenmuc": "Thuế nhập khẩu", "tieumuc": "1903", "tentieumuc": "Thuế nhập khẩu bổ sung (thuế tự vệ) (Dùng để hoạch toán phần thuế nhập khẩu áp dụng chế độ tự vệ theo quy định của pháp luật)"},"
 {"muc": "1900", "tenmuc": "Thuế nhập khẩu", "tieumuc": "1949", "tentieumuc": "Thuế nhập khẩu - Khác"},
 {"muc": "1950", "tenmuc": "Thuế bổ sung đối với hàng hoá nhập khẩu vào Việt Nam", "tieumuc": "1951", "tentieumuc": "Thuế chống bán phá giá đối với hàng hoá nhập khẩu vào Việt Nam"},
 {"muc": "1950", "tenmuc": "Thuế bổ sung đối với hàng hoá nhập khẩu vào Việt Nam", "tieumuc": "1952", "tentieumuc": "Thuế chống trợ cấp đối với hàng hoá nhập khẩu vào Việt Nam"},
